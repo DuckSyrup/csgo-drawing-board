@@ -17,9 +17,6 @@ var fs = require('fs');
 
 var db; //We load in DB later, after we've learned the username and password from the options
 
-
-
-
 //Loads config file if one exists and then starts the server
 var config_path = './config.json';
 fs.exists(config_path, function (config_exists) {
@@ -39,6 +36,33 @@ ROUTES
 
 app.get('/', function(req,res) {
 	res.render('index');
+});
+
+//Sign up
+app.get('/signup', function(req,res) {
+	res.render('signup');
+});
+
+//Login
+app.get('/login', function(req,res) {
+	res.render('login');
+});
+
+//Create a strategy
+app.get('/create', function(req,res) {
+	res.render('create');
+});
+
+//View a user
+app.get('/:type(u|user)/:user', function(req,res) {
+	//db.findUserStrats(req.params.username, function(err, strats) {
+		res.render('user', {user: req.params.user});
+	//});
+});
+
+//Edit a strategy
+app.get('/:type(u|user)/:user/:strat', function(req,res) {
+	res.render('editor');
 });
 
 //404 handling
@@ -86,7 +110,7 @@ function startServer(config) {
 	if (argv.dbpass) dbpass = argv.dbpass;
 	
 	console.log('Listening on ' + ip + ':' + port);
-	console.log('Using DB username:password of ' + dbuser + ':' + dbpass);
-	db = require('./db_api').db(dbuser,dbpass);
+	console.log('Using DB username-password of ' + dbuser + '-' + dbpass);
+	//db = require('./db_api').db(dbuser,dbpass);
 	app.listen(port, ip);
 }
