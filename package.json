@@ -1,0 +1,11 @@
+{
+    "name": "csgo-drawing-board",
+    "description": "Strategy development tool for CS: GO.",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "*",
+        "jade": "*",
+        "mongodb": "*",
+	"optimist": "*"
+    }
+}
