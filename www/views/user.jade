@@ -1,4 +1,7 @@
 extends layout
 
 block content
-	div #{user}
+	if #{error}
+		p #{error}
+	else
+		div #{user}

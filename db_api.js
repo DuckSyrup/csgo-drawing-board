@@ -20,21 +20,7 @@ function Db(username,pass) {
     
     var User = mongoose.model('User', userSchema);
     var Strat = mongoose.model('Strat', stratSchema);
-    var userSchema = new mongoose.Schema({
-        steamID: String,
-        username: String
-    });
     
-    var stratSchema = new mongoose.Schema({
-        stratName: String,
-        stratDescription: String,
-        username: String,
-        map: String,
-        shapes: [Object]
-    });
-    
-    var User = mongoose.model('User', userSchema);
-    var Strat = mongoose.model('Strat', stratSchema);
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
             var usr = new User({

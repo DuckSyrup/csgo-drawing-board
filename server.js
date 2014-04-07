@@ -55,9 +55,12 @@ app.get('/create', function(req,res) {
 
 //View a user
 app.get('/:type(u|user)/:user', function(req,res) {
-	//db.findUserStrats(req.params.username, function(err, strats) {
-		res.render('user', {user: req.params.user});
-	//});
+	db.findUserStrats(req.params.username, function(err, strats) {
+		if (err == undefined)
+			res.render('user', {error:err});
+		else
+			res.render('user', {user: req.params.user, strats:strats});
+	});
 });
 
 //Edit a strategy
@@ -111,6 +114,6 @@ function startServer(config) {
 	
 	console.log('Listening on ' + ip + ':' + port);
 	console.log('Using DB username-password of ' + dbuser + '-' + dbpass);
-	//db = require('./db_api').db(dbuser,dbpass);
+	db = require('./db_api').db(dbuser,dbpass);
 	app.listen(port, ip);
 }
