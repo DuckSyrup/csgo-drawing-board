@@ -82,8 +82,8 @@ function Db(username,pass) {
             cb(err,strats);
         });
     }
-    
-    mongoose.connect('mongodb:'+username+':'+pass+'@ds039707.mongolab.com:39707/csgo');
+    console.log('user: ' + username + ', pass: ' + pass);
+    mongoose.connect('mongodb://'+username+':'+pass+'@ds039707.mongolab.com:39707/csgo');
 }
 
 
