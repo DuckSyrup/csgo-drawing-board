@@ -56,10 +56,8 @@ app.get('/create', function(req,res) {
 //View a user
 app.get('/:type(u|user)/:user', function(req,res) {
 	db.findUserStrats(req.params.username, function(err, strats) {
-		if (err == undefined)
-			res.render('user', {error:err});
-		else
-			res.render('user', {user: req.params.user, strats:strats});
+        console.log(req.params.user);
+		res.render('user', {error: err, user: req.params.user, strats:strats});
 	});
 });
 
