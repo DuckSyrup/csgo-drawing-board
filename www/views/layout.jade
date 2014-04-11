@@ -5,13 +5,17 @@ html
                 link(rel='stylesheet', href='/styles/main.css')
                 block custHead
         body
-                div#header
-                        span#navMain
-                                a(href='/') CS: GO Drawing Board
-                                a(href='/create') Create a strat
-                        span#navUser
                 div#mainWrapper
-                div#content
-                        block content
-                div#footer.
-                        Source available at <a href="https://github.com/DuckSyrup/csgo-drawing-board/">GitHub</a>.
+                        div#header
+                                span#navMain
+                                        a(href='/') CS: GO Drawing Board
+                                        a(href='/create') Create a strat
+                                span#navUser
+                                        a(href='/')
+                        hr
+                        div#content
+                                block content
+                        hr
+                        div#footer
+                                div#copyright © 2014 <a href="https://github.com/DuckSyrup">Duck Syrup</a>
+                                div#source Source available at <a href="https://github.com/DuckSyrup/csgo-drawing-board/">GitHub</a>.

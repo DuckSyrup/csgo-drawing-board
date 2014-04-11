@@ -5,3 +5,7 @@ block content
 		div #{error}
 	else
 		div #{user}
+		if strats
+			div #{user}'s strategies:
+			each strat in strats
+				div #{strat.stratName}
