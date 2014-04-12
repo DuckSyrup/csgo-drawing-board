@@ -8,4 +8,4 @@ Contributions are welcome--leave feedback (suggestion, bug, whatever) in [the is
 
 License
 -----------
-This software is licensed under the AGPLv3.  This means that you can use this code or any elements of this code as long as you apply the same license to your application.  The license is available in full [here](https://github.com/DuckSyrup/csgo-drawing-board/blob/master/LICENSE.md).
+This software is licensed under the AGPLv3.  This means that you can use this code or any elements of this code as long as you apply the same license to your application.  The license is available in full [here](https://github.com/DuckSyrup/csgo-drawing-board/blob/master/LICENSE.txt).
