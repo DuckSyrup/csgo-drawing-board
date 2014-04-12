@@ -6,8 +6,8 @@
         "express": "*",
         "jade": "*",
         "mongodb": "*",
-        "optimist": "*",
         "mongoose": "*",
+        "nconf": "*",
         "body-parser": "*",
         "static-favicon": "*"
     }

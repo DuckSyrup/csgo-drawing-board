@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 var url = require('url');
-var argv = require('optimist').argv; //Command line parsing--allows lookups for flags
+var nconf = require('nconf');
 var fs = require('fs');
 
 var db; //We load in DB later, after we've learned the username and password from the options
@@ -77,35 +77,18 @@ app.use(function(req, res, next){
 SERVER CONFIG AND START
 ---------------*/
 
-//Default variables
-var ip = "localhost";
-var port = 8080;
-var dbuser = "";
-var dbpass = "";
+nconf.argv().file('./config.json');
+nconf.defaults({
+	ip: 'localhost',
+	port: 8080,
+	dbuser: "user",
+	dbpass: "pass"
+});
 
-//Trys to load config file
-var config;
-
-try {
-	config = require('./config.json');
-} catch (e) {
-	config = false;
-	console.log('No config file provided.');
-}
-
-//Read from config file, if one is provided.
-if (config) {
-	if (config.ip) ip = config.ip;
-	if (config.port) port = config.port;
-	if (config.dbuser) dbuser = config.dbuser;
-	if (config.dbpass) dbpass = config.dbpass;
-}
-
-//Take command line arguments
-if (argv.ip) ip = argv.ip;
-if (argv.port) port = argv.port;
-if (argv.dbuser) dbuser = argv.dbuser;
-if (argv.dbpass) dbpass = argv.dbpass;
+var ip = nconf.get('ip');
+var port = nconf.get('port');
+var dbuser = nconf.get('dbuser');
+var dbpass = nconf.get('dbpass');
 
 console.log('Listening on ' + ip + ':' + port);
 console.log('Using DB username-password of ' + dbuser + '-' + dbpass);
