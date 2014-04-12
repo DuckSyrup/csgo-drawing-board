@@ -4,7 +4,7 @@ A tool for developing CS: GO strategies. http://csgodrawingboard.com
 
 Contributions
 -------------------
-Contributions are welcome--leave feedback (suggestion, bug, whatever) in [the issues section](https://github.com/ducksyrup/reverse-proxy/issues), or shoot us a pull request.  We may not take your code or your suggestions, but we will read them.
+Contributions are welcome--leave feedback (suggestion, bug, whatever) in [the issues section](https://github.com/DuckSyrup/csgo-drawing-board/issues), or shoot us a pull request.  We may not take your code or your suggestions, but we will read them.
 
 License
 -----------
