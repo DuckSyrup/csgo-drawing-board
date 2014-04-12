@@ -7,6 +7,8 @@
         "jade": "*",
         "mongodb": "*",
         "optimist": "*",
-        "mongoose": "*"
+        "mongoose": "*",
+        "body-parser": "*",
+        "static-favicon": "*"
     }
 }
