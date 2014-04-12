@@ -9,6 +9,7 @@
         "mongoose": "*",
         "nconf": "*",
         "body-parser": "*",
-        "static-favicon": "*"
+        "static-favicon": "*",
+        "passport": "*"
     }
 }
