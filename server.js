@@ -168,7 +168,7 @@ app.post('/create/init', function(req,res) {
 	if (req.body.name && req.body.map) {
 		var newStrat = {
 			stratName: req.body.name,
-			//username: req.user.username,
+			username: req.user.name,
 			map: req.body.map
 		};
 		res.redirect('/u/' + req.user.name + '/' + req.body.name);
