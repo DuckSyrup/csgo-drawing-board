@@ -1,4 +1,19 @@
 extends layout
 
 block content
-	div Create a strat
+	if error
+		div#error #{'error'}
+	form(action='/init', method='post')
+		div
+			label(for='map') Map
+				select(id='map', type='text', value='', name='map')
+					option(value='de_dust2') Dust 2
+					option(value='cs_office') Office
+					option(value='de_dust') First Dust Best Dust
+					option(value='de_inferno') Inferno
+					option(vaue='de_nuke') Nuke
+
+		div
+			label(for='name') Strategy Name
+				input(id='name', type='text', value='', name='name')
+		input(type='submit', value='Create Strategy')

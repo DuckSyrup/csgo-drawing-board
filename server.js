@@ -56,7 +56,29 @@ app.get('/login', function(req,res) {
 
 //Create a strategy
 app.get('/create', function(req,res) {
-	res.render('create');
+	res.render('create', {error: req.params.error});
+});
+
+//Create a strategy and load it into the DB
+app.post('/init', function(req,res) {
+	if (req.body.name && req.body.map) {
+		var newStrat = {
+			stratName: req.body.name,
+			//username: req.user.username,
+			map: req.body.map
+		};
+		res.redirect('/u/' + req.user.name + '/' + req.body.name);
+	} else {
+		if (!req.body.name) {
+			console.log('name');
+			res.redirect('/create');
+		}
+		if (!req.body.map) {
+			console.log('map');
+			res.redirect('/create');
+		}
+		res.send('hi');
+	}
 });
 
 //View a user
