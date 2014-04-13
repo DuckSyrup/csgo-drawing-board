@@ -25,8 +25,10 @@ var passport = require('passport'),
 	db = require('./db_api').db,
 	connect = require('connect');
 	cookieParser = require('cookie-parser'),
-	session = require('express-session');
+	session = require('express-session'),
+	flash = require('connect-flash');
 
+//Passport code
 passport.serializeUser(function(user, done){
 	done(null, user);
 });
@@ -34,7 +36,6 @@ passport.serializeUser(function(user, done){
 passport.deserializeUser(function(obj,done){
 	done(null, obj);
 });
-
 
 passport.use(new SteamStrategy({
 	returnURL: 'http://localhost:8080/auth/steam/return',//return url here
@@ -65,6 +66,7 @@ app.use(cookieParser());
 app.use(session({secret:'this is super secret'}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 var url = require('url');
 var nconf = require('nconf');
@@ -98,16 +100,11 @@ app.get('/auth/steam/return',
 			else {
 				req.user.test = 'this is another test';
 				console.log('blah: ' + req.user.test);
-				res.redirect('/newuser');
+				res.redirect('/signup');
 			}
 		});
 	}
 );
-
-app.get('/newuser', function(req,res){
-	console.log('test: ' + req.user.test);
-	res.render('newuser');
-});
 
 //Sign up
 app.get('/signup', function(req,res) {
@@ -121,7 +118,7 @@ app.get('/login', function(req,res) {
 
 //Create a strategy
 app.get('/create', function(req,res) {
-	res.render('create', {error: req.params.error});
+	res.render('create', {error: req.flash('error')});
 });
 
 //Create a strategy and load it into the DB
@@ -134,15 +131,13 @@ app.post('/init', function(req,res) {
 		};
 		res.redirect('/u/' + req.user.name + '/' + req.body.name);
 	} else {
-		if (!req.body.name) {
-			console.log('name');
-			res.redirect('/create');
-		}
-		if (!req.body.map) {
-			console.log('map');
-			res.redirect('/create');
-		}
-		res.send('hi');
+		if (!req.body.name)
+			req.flash('error', 'No strategy name provided.  Try again.');
+		else if (!req.body.map)
+			req.flash('error', 'No strategy name provided.  Try again.');
+		else
+			req.flash('error', 'Unknown error.  Try again.');
+		res.redirect('/create');
 	}
 });
 

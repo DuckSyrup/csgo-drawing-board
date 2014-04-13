@@ -2,7 +2,7 @@ extends layout
 
 block content
 	if error
-		div#error #{'error'}
+		div#error #{error}
 	form(action='/init', method='post')
 		div
 			label(for='map') Map

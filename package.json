@@ -18,6 +18,7 @@
         "passport-steam": "*",
         "cookie-parser": "*",
         "connect": "*",
-        "express-session": "*"
+        "express-session": "*",
+        "connect-flash": "*"
     }
 }
