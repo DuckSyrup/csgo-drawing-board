@@ -17,18 +17,70 @@
  * along with CS:GO Drawing Board.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/*---------------
+LOAD DEPENDENCIES
+---------------*/
+
 var express = require('express');
 app = express();
 
 var passport = require('passport'),
 	SteamStrategy = require('passport-steam').Strategy,
-	db = require('./db_api').db,
 	connect = require('connect');
 	cookieParser = require('cookie-parser'),
 	session = require('express-session'),
-	flash = require('connect-flash');
+	flash = require('connect-flash'),
+	bodyParser = require('body-parser'),
+	url = require('url'),
+	nconf = require('nconf'),
+	fs = require('fs');
 
-//Passport code
+/*---------------
+READ CONFIG
+---------------*/
+
+nconf.argv().file('./config.json');
+nconf.defaults({
+	ip: 'localhost',
+	port: 8080,
+	dbuser: "user",
+	dbpass: "pass",
+	session: "secret"
+});
+
+//Read configuration files into global variables
+var ip = nconf.get('ip');
+var port = nconf.get('port');
+var dbUser = nconf.get('dbuser');
+var dbPass = nconf.get('dbpass');
+var sessionSecret = nconf.get('session');
+
+/*---------------
+SERVER CONFIG
+---------------*/
+
+//Connect to database
+db = require('./db_api').db(dbUser,dbPass);
+
+//We use www as the containing folder for all front-facing webserver files
+app.use(express.static(__dirname + '/www/public'));
+app.set('views', __dirname + '/www/views');
+app.set('view engine', 'jade');
+
+//Middleware to use POSTs
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+app.use(cookieParser());
+app.use(session({secret:sessionSecret}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+/*---------------
+PASSPORT CONFIG
+---------------*/
+
 passport.serializeUser(function(user, done){
 	done(null, user);
 });
@@ -52,27 +104,6 @@ passport.use(new SteamStrategy({
 		});
 	}
 ));
-
-//We use www as the containing folder for all front-facing webserver files
-app.use(express.static(__dirname + '/www/public'));
-app.set('views', __dirname + '/www/views');
-app.set('view engine', 'jade');
-
-//Middleware to use POSTs
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(session({secret:'this is super secret'}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-var url = require('url');
-var nconf = require('nconf');
-var fs = require('fs');
-
-var db; //We load in DB later, after we've learned the username and password from the options
 
 /*---------------
 ROUTES
@@ -134,7 +165,7 @@ app.post('/init', function(req,res) {
 		if (!req.body.name)
 			req.flash('error', 'No strategy name provided.  Try again.');
 		else if (!req.body.map)
-			req.flash('error', 'No strategy name provided.  Try again.');
+			req.flash('error', 'No map provided.  Try again.');
 		else
 			req.flash('error', 'Unknown error.  Try again.');
 		res.redirect('/create');
@@ -175,23 +206,10 @@ app.use(function(req, res, next){
 });
 
 /*---------------
-SERVER CONFIG AND START
+SERVER START
 ---------------*/
 
-nconf.argv().file('./config.json');
-nconf.defaults({
-	ip: 'localhost',
-	port: 8080,
-	dbuser: "user",
-	dbpass: "pass"
-});
-
-var ip = nconf.get('ip');
-var port = nconf.get('port');
-var dbuser = nconf.get('dbuser');
-var dbpass = nconf.get('dbpass');
-
 console.log('Listening on ' + ip + ':' + port);
-console.log('Using DB username-password of ' + dbuser + '-' + dbpass);
-db = require('./db_api').db(dbuser,dbpass);
+console.log('Session secret is ' + sessionSecret);
+console.log('Using DB username-password of ' + dbUser + '-' + dbPass);
 app.listen(port, ip);

@@ -2,5 +2,6 @@
     "ip" : "localhost",
     "port" : 8080,
     "dbuser": "user",
-    "dbpass": "pass"
+    "dbpass": "pass",
+    "session": "secret"
 }
