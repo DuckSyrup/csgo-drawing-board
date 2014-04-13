@@ -14,6 +14,10 @@
         "nconf": "*",
         "body-parser": "*",
         "static-favicon": "*",
-        "passport": "*"
+        "passport": "*",
+        "passport-steam": "*",
+        "cookie-parser": "*",
+        "connect": "*",
+        "express-session": "*"
     }
 }
