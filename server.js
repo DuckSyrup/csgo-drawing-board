@@ -94,7 +94,7 @@ app.get('/auth/steam/return',
 	function(req, res) {
 		db.findUserBySteamId(req.user.id, function(err,user){
 			if (user) {
-				req.user.test = 'this is a test';
+				req.user.name = user.username;
 				res.redirect('/u/'+user.username);
 			}
 			else {
