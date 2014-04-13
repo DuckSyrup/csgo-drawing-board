@@ -1,4 +1,10 @@
 extends layout
 
 block content
-	div Signup
+	if error
+		div#error #{error}
+	form(action='/signup/init', method='post')
+		div
+			label(for='name') CS:GO Drawing Board Username
+				input(id='name', type='text', value='', name='name')
+		input(type='submit', value='Create User')

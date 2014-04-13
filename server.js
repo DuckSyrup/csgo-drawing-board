@@ -39,6 +39,7 @@ var passport = require('passport'),
 READ CONFIG
 ---------------*/
 
+//Use nconf to read configuration options.  Command line args override config.json which overrides defaults
 nconf.argv().file('./config.json');
 nconf.defaults({
 	ip: 'localhost',
@@ -60,7 +61,7 @@ SERVER CONFIG
 ---------------*/
 
 //Connect to database
-db = require('./db_api').db(dbUser,dbPass);
+var db = require('./db_api').db(dbUser,dbPass);
 
 //We use www as the containing folder for all front-facing webserver files
 app.use(express.static(__dirname + '/www/public'));
@@ -142,9 +143,19 @@ app.get('/signup', function(req,res) {
 	res.render('signup');
 });
 
-//Login
-app.get('/login', function(req,res) {
-	res.render('login');
+app.post('/signup/init', function(req,res) {
+	var newUser= {
+		username: req.body.name,
+		steamID: req.user.id
+	};
+	db.newUser(newUser, function(err, user) {
+		if (err) {
+			res.redirect('/signup', {error: "Something bad happened.  Try again."});
+		} else {
+			req.user.name = newUser.username;
+			res.redirect('/u/' + req.user.name);
+		}
+	});
 });
 
 //Create a strategy
@@ -153,7 +164,7 @@ app.get('/create', function(req,res) {
 });
 
 //Create a strategy and load it into the DB
-app.post('/init', function(req,res) {
+app.post('/create/init', function(req,res) {
 	if (req.body.name && req.body.map) {
 		var newStrat = {
 			stratName: req.body.name,

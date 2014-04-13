@@ -3,7 +3,7 @@ extends layout
 block content
 	if error
 		div#error #{error}
-	form(action='/init', method='post')
+	form(action='/create/init', method='post')
 		div
 			label(for='map') Map
 				select(id='map', type='text', value='', name='map')
