@@ -1,26 +1,4 @@
-doctype html5
-html
-	head
-		title CS strategy page
-		link(type='text/css', rel='stylesheet', href='styles/editor.css')
-		link(type='text/css', rel='stylesheet', href='styles/ui-darkness/jquery-ui-1.10.3.custom.css')
-		link(rel='icon', href='imgs/favicon.ico')
-		script(src='/js/jquery.js')
-		script(src='/socket.io/socket.io.js')
-		script(src='/js/editor.js')
-		script(src='/js/kineticjs.js')
-		script(src='/js/jquery-ui-1.10.3.custom.js')
-	body
-		div#greatertool.nohightlight
-			div#toolbox.nohighlight
-				img#smoke-icon.tool(onclick="handleClick('smoke')", src="imgs/tools/smoke.jpeg")
-				img#hand-id.tool(onclick="handleClick('hand')", src="imgs/tools/hand.jpeg")
-				img#brush-id.tool(onclick="handleClick('brush')", src="imgs/tools/paintbrush.jpeg")
-				input#comid(type='text', name='namegetter', placeholder='Steam ID')
-				button#bComid.nohighlight(onclick='steamInfo()')
-					|Get Info
-				input#pageLink(type='text', size='10')
-				div#playerlist.toolbox
-		div#map(style="background-image: url('#{imgurl}')")
-			div#playerListWrapper
-				div#playerList
+extends layout
+
+block content
+	div Editor
