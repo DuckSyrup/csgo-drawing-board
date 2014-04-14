@@ -171,7 +171,15 @@ app.post('/create/init', function(req,res) {
 			username: req.user.name,
 			map: req.body.map
 		};
-		res.redirect('/u/' + req.user.name + '/' + req.body.name);
+        db.newStrat(newStrat, function(err, strat){
+            if (err) {
+                console.log(err);
+                res.redirect('/create');
+            }
+            else {
+                res.redirect('/u/' + req.user.name + '/' + req.body.name);
+            }
+        });
 	} else {
 		if (!req.body.name)
 			req.flash('error', 'No strategy name provided.  Try again.');
