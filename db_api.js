@@ -24,11 +24,13 @@ var db = mongoose.connection;
 db.on('error', console.error);
 
 function Db(username,pass) {
+    //Schema for a user
     var userSchema = new mongoose.Schema({
         steamID: String,
         username: String
     });
     
+    //Schema for a strat
     var stratSchema = new mongoose.Schema({
         stratName: String,
         stratDescription: String,
@@ -40,6 +42,7 @@ function Db(username,pass) {
     var User = mongoose.model('User', userSchema);
     var Strat = mongoose.model('Strat', stratSchema);
     
+    //Creates a new user entry into db
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
             var usr = new User({
@@ -55,6 +58,7 @@ function Db(username,pass) {
         }
     }
     
+    //Creates a new strategy entry into db
     this.newStrat = function(obj, cb) {
         if (obj.stratName && obj.username && obj.map) {
             var strat = new Strat({
@@ -73,18 +77,21 @@ function Db(username,pass) {
         }
     }
     
+    //Finds user by username
     this.findUser = function(username, cb) {
         User.findOne({username:username}, function(err,user){
             cb(err,user);
         });
     }
     
+    //Find user by steam ID
     this.findUserBySteamId = function(steamID, cb) {
         User.findOne({steamID:steamID}, function(err,user){
             cb(err,user);
         });
     }
     
+    //Find strat by username and strat name
     this.findStrat = function(obj, cb){
         if (obj.stratName && obj.username) {
             Strat.findOne({stratName:obj.stratName, username:obj.username}, function(err,strat){
@@ -96,6 +103,7 @@ function Db(username,pass) {
         }
     }
     
+    //Finds all strategies by a user.
     this.findUserStrats = function(username, cb) {
         Strat.find({username:username}, function(err,strats){
             cb(err,strats);
