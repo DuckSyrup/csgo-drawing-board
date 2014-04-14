@@ -113,7 +113,9 @@ API ROUTES
 app.get('/api/:type(u|user)/:user', function(req,res) {
 	db.findUser(req.params.user, function(err, user) {
 		if (user) {
-			res.json({error: err, user:user.username});
+			res.json({exists: true, error: err, user:user.username});
+		} else {
+			res.json({exists: false, error: err, user:req.params.user});
 		}
 	});
 });
@@ -252,12 +254,9 @@ function render(req, res, page, options) {
 		if (options.error.length == 0)
 			delete options.error;
 	}
-	if (req.user && req.user.name) {
+	if (req.user && req.user.name)
 		options.currUser = req.user.name;
-		res.render(page, options);
-	} else {
-		res.render(page, options);
-	}
+	res.render(page, options);
 }
 
 /*---------------

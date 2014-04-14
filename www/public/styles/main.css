@@ -12,6 +12,7 @@ body {
 #header{
 	position:relative;
 	height:50px;
+	font-size:50px;
 }
 .navElement{
 	position:absolute;
@@ -29,6 +30,10 @@ body {
 }
 .navLink {
 	padding-right: 10px;
+}
+
+#error {
+	background-color: #FF9E99;
 }
 
 #footer{

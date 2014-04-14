@@ -1,15 +1,16 @@
 doctype html5
 html
         head
-                title CS: GO Drawing Board
+                title CS:GO Drawing Board
                 link(rel='stylesheet', href='/styles/main.css')
+                script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
                 block custHead
         body
                 div#mainWrapper
                         div#header
                                 div#navMain.navElement.left
-                                        a(href='/').navLink CS: GO Drawing Board
-                                        a(href='/create').navLink Create a strat
+                                        a(href='/').navLink Home
+                                        a(href='/create').navLink Create Strat
                                 div#navUser.navElement.right
                                         if currUser
                                                 a(href='/u/#{currUser}') #{currUser}

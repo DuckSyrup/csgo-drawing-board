@@ -1,5 +1,8 @@
 extends layout
 
+block custHead
+	script(type='text/javascript', src='scripts/user.js')
+
 block content
 	div #{user}
 	if strats
