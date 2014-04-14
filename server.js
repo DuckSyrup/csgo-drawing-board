@@ -33,6 +33,7 @@ var passport = require('passport'),
 	bodyParser = require('body-parser'),
 	url = require('url'),
 	nconf = require('nconf'),
+	summon = require('express-summon-route'),
 	fs = require('fs');
 
 /*---------------
@@ -215,6 +216,10 @@ app.use(function(req, res, next){
 	// default to plain-text. send()
 	res.type('txt').send('Not found');
 });
+
+/*---------------
+API ROUTES
+---------------*/
 
 /*---------------
 SERVER START
