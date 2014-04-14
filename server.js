@@ -153,7 +153,7 @@ app.get('/auth/steam/return',
 
 //Sign up
 app.get('/signup', function(req,res) {
-	res.render('signup');
+	res.render('signup', {error: req.flash('error')});
 });
 
 app.post('/signup/init', function(req,res) {
@@ -163,7 +163,8 @@ app.post('/signup/init', function(req,res) {
 	};
 	db.newUser(newUser, function(err, user) {
 		if (err) {
-			res.redirect('/signup', {error: "Something bad happened.  Try again."});
+			req.flash('error', "something went wrong");
+			res.redirect('/signup');
 		} else {
 			req.user.name = newUser.username;
 			res.redirect('/u/' + req.user.name);
