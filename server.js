@@ -147,7 +147,6 @@ app.get('/auth/steam/return',
 				res.redirect('/u/'+user.username);
 			}
 			else {
-				req.user.test = 'this is another test';
 				res.redirect('/signup');
 			}
 		});
@@ -162,7 +161,7 @@ app.get('/signup', function(req,res) {
 //Process the signup
 app.post('/signup/init', function(req,res) {
 	var newUser= {
-		username: req.body.name,
+		username: req.params.name,
 		steamID: req.user.id
 	};
 	db.newUser(newUser, function(err, user) {
@@ -178,16 +177,19 @@ app.post('/signup/init', function(req,res) {
 
 //Create a strategy
 app.get('/create', function(req,res) {
-	render(req, res, 'create', {error: req.flash('error')});
+	if (req.user && req.user.name)
+		render(req, res, 'create', {error: req.flash('error')});
+	else
+		render(req, res, 'create', {error: 'You are not logged in.'});
 });
 
 //Create a strategy and load it into the DB
 app.post('/create/init', function(req,res) {
-	if (req.body.name && req.body.map) {
+	if (req.params.name && req.params.map && req.user && req.user.name) {
 		var newStrat = {
-			stratName: req.body.name,
+			stratName: req.params.name,
 			username: req.user.name,
-			map: req.body.map
+			map: req.params.map
 		};
 		db.newStrat(newStrat, function(err, strat){
 			if (err) {
@@ -195,14 +197,16 @@ app.post('/create/init', function(req,res) {
 				res.redirect('/create');
 			}
 			else {
-				res.redirect('/u/' + req.user.name + '/' + req.body.name);
+				res.redirect('/u/' + req.user.name + '/' + req.params.name);
 			}
 		});
 	} else {
-		if (!req.body.name)
+		if (!req.params.name)
 			req.flash('error', 'No strategy name provided.  Try again.');
-		else if (!req.body.map)
+		else if (!req.params.map)
 			req.flash('error', 'No map provided.  Try again.');
+		else if (!req.user || !req.user.name)
+			req.flash('error', 'You are not logged in.  Log in and try again.');
 		else
 			req.flash('error', 'Unknown error.  Try again.');
 		res.redirect('/create');
@@ -217,7 +221,7 @@ app.get('/:type(u|user)/:user', function(req,res) {
 				render(req, res, 'user', {error: err, user: req.params.user, strats:strats});
 			});
 		} else {
-			render(req, res, 'user', {error: 'Could not be found.', user: req.params.user});
+			render(req, res, 'user', {error: 'User ould not be found.', user: req.params.user});
 		}
 	});
 });
@@ -248,7 +252,7 @@ app.use(function(req, res, next){
 });
 
 function render(req, res, page, options) {
-	if (!options) var options = {};
+	if (!options) options = {};
 	//Handle dumb error issues
 	if (options.error) {
 		if (options.error.length == 0)
