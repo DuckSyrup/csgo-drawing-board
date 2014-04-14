@@ -33,6 +33,7 @@ var passport = require('passport'),
 	bodyParser = require('body-parser'),
 	url = require('url'),
 	nconf = require('nconf'),
+	summon = require('express-summon-route'),
 	fs = require('fs');
 
 /*---------------
@@ -193,9 +194,14 @@ app.post('/create/init', function(req,res) {
 
 //View a user
 app.get('/:type(u|user)/:user', function(req,res) {
-	db.findUserStrats(req.params.username, function(err, strats) {
-		console.log(strats);
-		res.render('user', {error: err, user: req.params.user, strats:strats});
+	db.findUser(req.params.user, function(err, user) {
+		if (user) {
+			db.findUserStrats(req.params.user, function(err, strats) {
+				res.render('user', {error: err, user: req.params.user, strats:strats});
+			});
+		} else {
+			res.render('user', {error: 'Could not be found.', user: req.params.user});
+		}
 	});
 });
 
@@ -223,6 +229,10 @@ app.use(function(req, res, next){
 	// default to plain-text. send()
 	res.type('txt').send('Not found');
 });
+
+/*---------------
+API ROUTES
+---------------*/
 
 /*---------------
 SERVER START

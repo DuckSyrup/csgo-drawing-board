@@ -19,6 +19,7 @@
         "cookie-parser": "*",
         "connect": "*",
         "express-session": "*",
-        "connect-flash": "*"
+        "connect-flash": "*",
+        "express-summon-route": "*"
     }
 }
