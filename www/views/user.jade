@@ -2,7 +2,7 @@ extends layout
 
 block content
 	if (error)
-		div #{error}
+		div#error #{user}: #{error}
 	else
 		div #{user}
 		if strats

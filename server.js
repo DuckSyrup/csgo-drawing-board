@@ -186,9 +186,14 @@ app.post('/create/init', function(req,res) {
 
 //View a user
 app.get('/:type(u|user)/:user', function(req,res) {
-	db.findUserStrats(req.params.username, function(err, strats) {
-		console.log(strats);
-		res.render('user', {error: err, user: req.params.user, strats:strats});
+	db.findUser(req.params.user, function(err, user) {
+		if (user) {
+			db.findUserStrats(req.params.user, function(err, strats) {
+				res.render('user', {error: err, user: req.params.user, strats:strats});
+			});
+		} else {
+			res.render('user', {error: 'Could not be found.', user: req.params.user});
+		}
 	});
 });
 
