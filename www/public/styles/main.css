@@ -1,6 +1,7 @@
 body {
 	background-color:#ccc;
 	font-family: 'Roboto Condensed', sans-serif;
+	font-size:15px;
 }
 
 #mainWrapper {
@@ -12,8 +13,8 @@ body {
 
 #header{
 	position:relative;
-	height:50px;
-	font-size:50px;
+	height:23px;
+	font-size:20px;
 }
 .navElement{
 	position:absolute;
