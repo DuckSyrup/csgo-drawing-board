@@ -108,6 +108,18 @@ passport.use(new SteamStrategy({
 ));
 
 /*---------------
+API ROUTES
+---------------*/
+
+app.get('/api/:type(u|user)/:user', function(req,res) {
+	db.findUser(req.params.user, function(err, user) {
+		if (user) {
+			res.json({error: err, user:user.username});
+		}
+	});
+});
+
+/*---------------
 ROUTES
 ---------------*/
 
@@ -221,10 +233,6 @@ app.use(function(req, res, next){
 	// default to plain-text. send()
 	res.type('txt').send('Not found');
 });
-
-/*---------------
-API ROUTES
----------------*/
 
 /*---------------
 SERVER START
