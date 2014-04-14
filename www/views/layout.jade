@@ -7,10 +7,10 @@ html
         body
                 div#mainWrapper
                         div#header
-                                span#navMain
-                                        a(href='/') CS: GO Drawing Board
-                                        a(href='/create') Create a strat
-                                span#navUser
+                                div#navMain.navElement.left
+                                        a(href='/').navLink CS: GO Drawing Board
+                                        a(href='/create').navLink Create a strat
+                                div#navUser.navElement.right
                                         if currUser
                                                 a(href='/u/#{currUser}') #{currUser}
                                         else

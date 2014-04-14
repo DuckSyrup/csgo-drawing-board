@@ -1,5 +1,4 @@
 body {
-	font-size:50px;
 	background-color:#ccc;
 }
 
@@ -8,6 +7,28 @@ body {
 	width:860px;
 	margin: 0 auto;
 	padding:30px;
+}
+
+#header{
+	position:relative;
+	height:50px;
+}
+.navElement{
+	position:absolute;
+	bottom:0;
+}
+.navElement.left{
+	width:70%;
+	left:0;
+	text-align:left;
+}
+.navElement.right{
+	width:30%;
+	right:0;
+	text-align:right;
+}
+.navLink {
+	padding-right: 10px;
 }
 
 #footer{
