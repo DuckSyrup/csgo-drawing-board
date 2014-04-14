@@ -98,10 +98,8 @@ passport.use(new SteamStrategy({
 	function(identifier, profile, done) {
 		process.nextTick(function() {
 			//I guess this is where I put in the query for local user from steam data?
-			console.log('the identifier is: ' + identifier);
 			var id = identifier.match('http://steamcommunity.com/openid/id/(.*)')[1];
 			profile.id = id;
-			console.log(id);
 			return done(null, profile);
 		});
 	}
@@ -111,6 +109,7 @@ passport.use(new SteamStrategy({
 API ROUTES
 ---------------*/
 
+//Get a user.  Does not return strats.
 app.get('/api/:type(u|user)/:user', function(req,res) {
 	db.findUser(req.params.user, function(err, user) {
 		if (user) {
@@ -123,10 +122,12 @@ app.get('/api/:type(u|user)/:user', function(req,res) {
 ROUTES
 ---------------*/
 
+//Main page
 app.get('/', function(req,res) {
-	res.render('index');
+	render(req, res, 'index');
 });
 
+//Login through Steam
 app.get('/auth/steam',
 	passport.authenticate('steam', {failureRedirect: '/'}),
 	function(req,res) {
@@ -134,8 +135,9 @@ app.get('/auth/steam',
 	}
 );
 
+//Complete Steam login
 app.get('/auth/steam/return',
-	passport.authenticate('steam', { failureRedirect: '/' }),
+	passport.authenticate('steam', {failureRedirect: '/'}),
 	function(req, res) {
 		db.findUserBySteamId(req.user.id, function(err,user){
 			if (user) {
@@ -144,7 +146,6 @@ app.get('/auth/steam/return',
 			}
 			else {
 				req.user.test = 'this is another test';
-				console.log('blah: ' + req.user.test);
 				res.redirect('/signup');
 			}
 		});
@@ -153,9 +154,10 @@ app.get('/auth/steam/return',
 
 //Sign up
 app.get('/signup', function(req,res) {
-	res.render('signup', {error: req.flash('error')});
+	render(req, res, 'signup', {error: req.flash('error')});
 });
 
+//Process the signup
 app.post('/signup/init', function(req,res) {
 	var newUser= {
 		username: req.body.name,
@@ -163,7 +165,7 @@ app.post('/signup/init', function(req,res) {
 	};
 	db.newUser(newUser, function(err, user) {
 		if (err) {
-			req.flash('error', "something went wrong");
+			req.flash('error', err.err);
 			res.redirect('/signup');
 		} else {
 			req.user.name = newUser.username;
@@ -174,7 +176,7 @@ app.post('/signup/init', function(req,res) {
 
 //Create a strategy
 app.get('/create', function(req,res) {
-	res.render('create', {error: req.flash('error')});
+	render(req, res, 'create', {error: req.flash('error')});
 });
 
 //Create a strategy and load it into the DB
@@ -185,15 +187,15 @@ app.post('/create/init', function(req,res) {
 			username: req.user.name,
 			map: req.body.map
 		};
-        db.newStrat(newStrat, function(err, strat){
-            if (err) {
-                console.log(err);
-                res.redirect('/create');
-            }
-            else {
-                res.redirect('/u/' + req.user.name + '/' + req.body.name);
-            }
-        });
+		db.newStrat(newStrat, function(err, strat){
+			if (err) {
+				req.flash('error', err);
+				res.redirect('/create');
+			}
+			else {
+				res.redirect('/u/' + req.user.name + '/' + req.body.name);
+			}
+		});
 	} else {
 		if (!req.body.name)
 			req.flash('error', 'No strategy name provided.  Try again.');
@@ -210,17 +212,17 @@ app.get('/:type(u|user)/:user', function(req,res) {
 	db.findUser(req.params.user, function(err, user) {
 		if (user) {
 			db.findUserStrats(req.params.user, function(err, strats) {
-				res.render('user', {error: err, user: req.params.user, strats:strats});
+				render(req, res, 'user', {error: err, user: req.params.user, strats:strats});
 			});
 		} else {
-			res.render('user', {error: 'Could not be found.', user: req.params.user});
+			render(req, res, 'user', {error: 'Could not be found.', user: req.params.user});
 		}
 	});
 });
 
 //Edit a strategy
 app.get('/:type(u|user)/:user/:strat', function(req,res) {
-	res.render('editor');
+	render(req, res, 'editor');
 });
 
 //404 handling
@@ -242,6 +244,21 @@ app.use(function(req, res, next){
 	// default to plain-text. send()
 	res.type('txt').send('Not found');
 });
+
+function render(req, res, page, options) {
+	if (!options) var options = {};
+	//Handle dumb error issues
+	if (options.error) {
+		if (options.error.length == 0)
+			delete options.error;
+	}
+	if (req.user && req.user.name) {
+		options.currUser = req.user.name;
+		res.render(page, options);
+	} else {
+		res.render(page, options);
+	}
+}
 
 /*---------------
 SERVER START

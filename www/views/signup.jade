@@ -1,8 +1,6 @@
 extends layout
 
 block content
-	if error
-		div#error #{error}
 	form(action='/signup/init', method='post')
 		div
 			label(for='name') CS:GO Drawing Board Username

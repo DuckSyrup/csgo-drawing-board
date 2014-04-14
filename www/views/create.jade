@@ -1,8 +1,6 @@
 extends layout
 
 block content
-	if error
-		div#error #{error}
 	form(action='/create/init', method='post')
 		div
 			label(for='map') Map

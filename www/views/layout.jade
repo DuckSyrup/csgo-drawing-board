@@ -11,8 +11,15 @@ html
                                         a(href='/') CS: GO Drawing Board
                                         a(href='/create') Create a strat
                                 span#navUser
-                                        a(href='/')
+                                        if currUser
+                                                a(href='/u/#{currUser}') #{currUser}
+                                        else
+                                                a(href='/auth/steam')
+                                                    img(src='http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_large_border.png')
                         hr
+                        if error
+                                div#error
+                                        div Error: #{error}
                         div#content
                                 block content
                         hr
