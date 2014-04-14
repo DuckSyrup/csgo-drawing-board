@@ -108,12 +108,3 @@ function Db(username,pass) {
 exports.db = function(user,pass){
     return new Db(user,pass);
 }
-
-//function Test(one,two){
-//    this.one = one;
-//    this.two = two;
-//}
-//
-//exports.test = function(one,two){
-//    return new Test(one,two);
-//}
