@@ -8,4 +8,5 @@ block content
 	if strats
 		div #{user}'s strategies:
 		each strat in strats
-			div #{strat.stratName}
+			div.strat(id='#{strat.stratName}')
+				a(href='/u/#{user}/#{strat.stratName}') #{strat.stratName}

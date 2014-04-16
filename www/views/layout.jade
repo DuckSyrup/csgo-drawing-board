@@ -22,6 +22,9 @@ html
                         if error
                                 div#error
                                         div Error: #{error}
+                        if message
+                                div#message
+                                        div #{message}
                         div#content
                                 block content
                         hr
