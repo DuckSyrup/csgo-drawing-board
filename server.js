@@ -57,6 +57,11 @@ var dbUser = nconf.get('dbuser');
 var dbPass = nconf.get('dbpass');
 var sessionSecret = nconf.get('session');
 
+var server = app.listen(port, ip);
+
+
+var io = require('./apis/socket_io_api').start(server);
+
 /*---------------
 SERVER CONFIG
 ---------------*/
@@ -289,4 +294,3 @@ SERVER START
 console.log('Listening on ' + ip + ':' + port);
 console.log('Session secret is ' + sessionSecret);
 console.log('Using DB username-password of ' + dbUser + '-' + dbPass);
-app.listen(port, ip);
