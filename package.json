@@ -20,6 +20,7 @@
         "connect": "*",
         "express-session": "*",
         "connect-flash": "*",
-        "express-summon-route": "*"
+        "express-summon-route": "*",
+        "socket.io": "*"
     }
 }

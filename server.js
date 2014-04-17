@@ -62,7 +62,7 @@ SERVER CONFIG
 ---------------*/
 
 //Connect to database
-var db = require('./db_api').db(dbUser,dbPass);
+var db = require('./apis/db_api').db(dbUser,dbPass);
 
 //We use www as the containing folder for all front-facing webserver files
 app.use(express.static(__dirname + '/www/public'));
