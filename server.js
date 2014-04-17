@@ -120,6 +120,16 @@ app.get('/api/:type(u|user)/:user', function(req,res) {
 	});
 });
 
+//Delete a user strat
+app.get('/api/:type(u|user)/:user/:strat/delete', function(req,res) {
+	if (req.user && req.user.name && req.user.name == req.params.user) {
+		//Delete strat
+		res.json({worked: true, error: null, strat: req.params.strat, user:req.params.user});
+	} else {
+		res.json({worked: false, error: "You aren't logged in.", strat: req.params.strat, user:req.params.user});
+	}
+});
+
 /*---------------
 ROUTES
 ---------------*/
