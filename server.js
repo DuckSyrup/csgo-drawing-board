@@ -172,7 +172,7 @@ app.get('/signup', function(req,res) {
 //Process the signup
 app.post('/signup/init', function(req,res) {
 	var newUser= {
-		username: req.params.name,
+		username: req.body.name,
 		steamID: req.user.id
 	};
 	db.newUser(newUser, function(err, user) {
@@ -196,11 +196,11 @@ app.get('/create', function(req,res) {
 
 //Create a strategy and load it into the DB
 app.post('/create/init', function(req,res) {
-	if (req.params.name && req.params.map && req.user && req.user.name) {
+	if (req.body.name && req.body.map && req.user && req.user.name) {
 		var newStrat = {
-			stratName: req.params.name,
+			stratName: req.body.name,
 			username: req.user.name,
-			map: req.params.map
+			map: req.body.map
 		};
 		db.newStrat(newStrat, function(err, strat){
 			if (err) {
@@ -208,13 +208,13 @@ app.post('/create/init', function(req,res) {
 				res.redirect('/create');
 			}
 			else {
-				res.redirect('/u/' + req.user.name + '/' + req.params.name);
+				res.redirect('/u/' + req.user.name + '/' + req.body.name);
 			}
 		});
 	} else {
-		if (!req.params.name)
+		if (!req.body.name)
 			req.flash('error', 'No strategy name provided.  Try again.');
-		else if (!req.params.map)
+		else if (!req.body.map)
 			req.flash('error', 'No map provided.  Try again.');
 		else if (!req.user || !req.user.name)
 			req.flash('error', 'You are not logged in.  Log in and try again.');
