@@ -4,6 +4,7 @@
     "version": "0.0.2",
     "bugs": "https://github.com/DuckSyrup/csgo-drawing-board/issues",
     "repository": {"type": "git", "url": "https://github.com/DuckSyrup/csgo-drawing-board"},
+    "license": "AGPL-3.0",
     "dependencies": {
         "body-parser": "1.0.2",
         "connect": "3.0.0-rc.1",
