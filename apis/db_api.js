@@ -26,28 +26,52 @@ db.on('error', console.error);
 function Db(username,pass) {
     //Schema for a user
     var userSchema = new mongoose.Schema({
-        steamID: String,
-        username: String
+        id: String,
+        name: String
     });
     
     //Schema for a strat
     var stratSchema = new mongoose.Schema({
         stratName: String,
-        stratDescription: String,
-        username: String,
+        desc: String,
+        owner: {
+            type: String,
+            name: String
+        },
         map: String,
-        shapes: [Object]
+        root: String
+    });
+    
+    //Schema for a frame of a strat
+    var frameSchema = new mongoose.Schema({
+        desc: String,
+        event: {
+            desc: String,
+            icon: String
+        },
+        elem: [Object],
+        parent: String,
+        children: [String],
+        editors: [String],
+        strat: String
+    });
+    
+    //Schema for an organization
+    var orgSchema = new mongoose.Schema({
+        name: String,
+        editors: [Object]
     });
     
     var User = mongoose.model('User', userSchema);
     var Strat = mongoose.model('Strat', stratSchema);
+    var Frame = mongoose.model('Frame', frameSchema);
     
     //Creates a new user entry into db
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
             var usr = new User({
-                steamID: obj.steamID,
-                username: obj.username
+                id: obj.steamID,
+                name: obj.username
             });
             usr.save(function(err, user){
                 cb(err, user);
@@ -60,16 +84,30 @@ function Db(username,pass) {
     
     //Creates a new strategy entry into db
     this.newStrat = function(obj, cb) {
-        if (obj.stratName && obj.username && obj.map) {
+        if (obj.stratName && obj.owner.name && obj.owner.type && obj.map) {
             var strat = new Strat({
                 stratName: obj.stratName,
-                username: obj.username,
-                stratDescription: obj.stratDescription,
+                owner: obj.owner,
+                desc: obj.stratDescription,
                 map: obj.map,
-                shapes: obj.shapes
+                root: ""
             });
             strat.save(function(err, strat){
-                cb(err, strat);
+                var id = strat._id;
+                var rootFrame = new Frame({
+                    desc: "",
+                    event: {
+                        desc: "Start of round",
+                        icon: ""
+                    },
+                    parent: null,
+                    children: [],
+                    editors: [],
+                    strat: id
+                });
+                rootFrame.save(function(err, root){
+                    Strat.update({_id: id}, {root: root._id}, {}, cb(err, strat));
+                });
             });
         }
         else {
