@@ -1,0 +1,337 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.1.59
+3 info using node@v0.8.8
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json C:\Users\Patrick\csgodb\csgo-drawing-board\package.json
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'C:\\Users\\Patrick\\csgodb\\csgo-drawing-board',
+7 verbose install   [ 'express',
+7 verbose install     'jade',
+7 verbose install     'mongodb',
+7 verbose install     'mongoose',
+7 verbose install     'nconf',
+7 verbose install     'body-parser',
+7 verbose install     'static-favicon',
+7 verbose install     'passport',
+7 verbose install     'passport-steam',
+7 verbose install     'cookie-parser',
+7 verbose install     'connect',
+7 verbose install     'express-session',
+7 verbose install     'connect-flash' ] ]
+8 verbose from cache C:\Users\Patrick\csgodb\csgo-drawing-board\package.json
+9 info preinstall csgo-drawing-board@0.0.1
+10 verbose from cache C:\Users\Patrick\csgodb\csgo-drawing-board\package.json
+11 verbose readDependencies using package.json deps
+12 verbose cache add [ 'express@*', null ]
+13 silly cache add name=undefined spec="express@*" args=["express@*",null]
+14 verbose parsed url { pathname: 'express@*', path: 'express@*', href: 'express@*' }
+15 silly cache add name="express" spec="*" args=["express","*"]
+16 verbose parsed url { pathname: '*', path: '*', href: '*' }
+17 verbose addNamed [ 'express', '*' ]
+18 verbose addNamed [ null, '' ]
+19 verbose cache add [ 'jade@*', null ]
+20 silly cache add name=undefined spec="jade@*" args=["jade@*",null]
+21 verbose parsed url { pathname: 'jade@*', path: 'jade@*', href: 'jade@*' }
+22 silly cache add name="jade" spec="*" args=["jade","*"]
+23 verbose parsed url { pathname: '*', path: '*', href: '*' }
+24 verbose addNamed [ 'jade', '*' ]
+25 verbose addNamed [ null, '' ]
+26 verbose cache add [ 'mongodb@*', null ]
+27 silly cache add name=undefined spec="mongodb@*" args=["mongodb@*",null]
+28 verbose parsed url { pathname: 'mongodb@*', path: 'mongodb@*', href: 'mongodb@*' }
+29 silly cache add name="mongodb" spec="*" args=["mongodb","*"]
+30 verbose parsed url { pathname: '*', path: '*', href: '*' }
+31 verbose addNamed [ 'mongodb', '*' ]
+32 verbose addNamed [ null, '' ]
+33 verbose cache add [ 'mongoose@*', null ]
+34 silly cache add name=undefined spec="mongoose@*" args=["mongoose@*",null]
+35 verbose parsed url { pathname: 'mongoose@*',
+35 verbose parsed url   path: 'mongoose@*',
+35 verbose parsed url   href: 'mongoose@*' }
+36 silly cache add name="mongoose" spec="*" args=["mongoose","*"]
+37 verbose parsed url { pathname: '*', path: '*', href: '*' }
+38 verbose addNamed [ 'mongoose', '*' ]
+39 verbose addNamed [ null, '' ]
+40 verbose cache add [ 'nconf@*', null ]
+41 silly cache add name=undefined spec="nconf@*" args=["nconf@*",null]
+42 verbose parsed url { pathname: 'nconf@*', path: 'nconf@*', href: 'nconf@*' }
+43 silly cache add name="nconf" spec="*" args=["nconf","*"]
+44 verbose parsed url { pathname: '*', path: '*', href: '*' }
+45 verbose addNamed [ 'nconf', '*' ]
+46 verbose addNamed [ null, '' ]
+47 verbose cache add [ 'body-parser@*', null ]
+48 silly cache add name=undefined spec="body-parser@*" args=["body-parser@*",null]
+49 verbose parsed url { pathname: 'body-parser@*',
+49 verbose parsed url   path: 'body-parser@*',
+49 verbose parsed url   href: 'body-parser@*' }
+50 silly cache add name="body-parser" spec="*" args=["body-parser","*"]
+51 verbose parsed url { pathname: '*', path: '*', href: '*' }
+52 verbose addNamed [ 'body-parser', '*' ]
+53 verbose addNamed [ null, '' ]
+54 verbose cache add [ 'static-favicon@*', null ]
+55 silly cache add name=undefined spec="static-favicon@*" args=["static-favicon@*",null]
+56 verbose parsed url { pathname: 'static-favicon@*',
+56 verbose parsed url   path: 'static-favicon@*',
+56 verbose parsed url   href: 'static-favicon@*' }
+57 silly cache add name="static-favicon" spec="*" args=["static-favicon","*"]
+58 verbose parsed url { pathname: '*', path: '*', href: '*' }
+59 verbose addNamed [ 'static-favicon', '*' ]
+60 verbose addNamed [ null, '' ]
+61 verbose cache add [ 'passport@*', null ]
+62 silly cache add name=undefined spec="passport@*" args=["passport@*",null]
+63 verbose parsed url { pathname: 'passport@*',
+63 verbose parsed url   path: 'passport@*',
+63 verbose parsed url   href: 'passport@*' }
+64 silly cache add name="passport" spec="*" args=["passport","*"]
+65 verbose parsed url { pathname: '*', path: '*', href: '*' }
+66 verbose addNamed [ 'passport', '*' ]
+67 verbose addNamed [ null, '' ]
+68 verbose cache add [ 'passport-steam@*', null ]
+69 silly cache add name=undefined spec="passport-steam@*" args=["passport-steam@*",null]
+70 verbose parsed url { pathname: 'passport-steam@*',
+70 verbose parsed url   path: 'passport-steam@*',
+70 verbose parsed url   href: 'passport-steam@*' }
+71 silly cache add name="passport-steam" spec="*" args=["passport-steam","*"]
+72 verbose parsed url { pathname: '*', path: '*', href: '*' }
+73 verbose addNamed [ 'passport-steam', '*' ]
+74 verbose addNamed [ null, '' ]
+75 verbose cache add [ 'cookie-parser@*', null ]
+76 silly cache add name=undefined spec="cookie-parser@*" args=["cookie-parser@*",null]
+77 verbose parsed url { pathname: 'cookie-parser@*',
+77 verbose parsed url   path: 'cookie-parser@*',
+77 verbose parsed url   href: 'cookie-parser@*' }
+78 silly cache add name="cookie-parser" spec="*" args=["cookie-parser","*"]
+79 verbose parsed url { pathname: '*', path: '*', href: '*' }
+80 verbose addNamed [ 'cookie-parser', '*' ]
+81 verbose addNamed [ null, '' ]
+82 verbose cache add [ 'connect@*', null ]
+83 silly cache add name=undefined spec="connect@*" args=["connect@*",null]
+84 verbose parsed url { pathname: 'connect@*', path: 'connect@*', href: 'connect@*' }
+85 silly cache add name="connect" spec="*" args=["connect","*"]
+86 verbose parsed url { pathname: '*', path: '*', href: '*' }
+87 verbose addNamed [ 'connect', '*' ]
+88 verbose addNamed [ null, '' ]
+89 verbose cache add [ 'express-session@*', null ]
+90 silly cache add name=undefined spec="express-session@*" args=["express-session@*",null]
+91 verbose parsed url { pathname: 'express-session@*',
+91 verbose parsed url   path: 'express-session@*',
+91 verbose parsed url   href: 'express-session@*' }
+92 silly cache add name="express-session" spec="*" args=["express-session","*"]
+93 verbose parsed url { pathname: '*', path: '*', href: '*' }
+94 verbose addNamed [ 'express-session', '*' ]
+95 verbose addNamed [ null, '' ]
+96 verbose cache add [ 'connect-flash@*', null ]
+97 silly cache add name=undefined spec="connect-flash@*" args=["connect-flash@*",null]
+98 verbose parsed url { pathname: 'connect-flash@*',
+98 verbose parsed url   path: 'connect-flash@*',
+98 verbose parsed url   href: 'connect-flash@*' }
+99 silly cache add name="connect-flash" spec="*" args=["connect-flash","*"]
+100 verbose parsed url { pathname: '*', path: '*', href: '*' }
+101 verbose addNamed [ 'connect-flash', '*' ]
+102 verbose addNamed [ null, '' ]
+103 silly lockFile e0858070-mongoose mongoose@*
+104 verbose lock mongoose@* C:\Users\Patrick\AppData\Roaming\npm-cache\e0858070-mongoose.lock
+105 silly lockFile 12b67fc9-body-parser body-parser@*
+106 verbose lock body-parser@* C:\Users\Patrick\AppData\Roaming\npm-cache\12b67fc9-body-parser.lock
+107 silly lockFile a70f4689-passport-steam passport-steam@*
+108 verbose lock passport-steam@* C:\Users\Patrick\AppData\Roaming\npm-cache\a70f4689-passport-steam.lock
+109 silly lockFile f058ceca-cookie-parser cookie-parser@*
+110 verbose lock cookie-parser@* C:\Users\Patrick\AppData\Roaming\npm-cache\f058ceca-cookie-parser.lock
+111 silly lockFile a2361ee0-connect connect@*
+112 verbose lock connect@* C:\Users\Patrick\AppData\Roaming\npm-cache\a2361ee0-connect.lock
+113 silly lockFile 6353b055-connect-flash connect-flash@*
+114 verbose lock connect-flash@* C:\Users\Patrick\AppData\Roaming\npm-cache\6353b055-connect-flash.lock
+115 silly lockFile b328633d-express-session express-session@*
+116 verbose lock express-session@* C:\Users\Patrick\AppData\Roaming\npm-cache\b328633d-express-session.lock
+117 silly lockFile 5db5ee1e-static-favicon static-favicon@*
+118 verbose lock static-favicon@* C:\Users\Patrick\AppData\Roaming\npm-cache\5db5ee1e-static-favicon.lock
+119 silly lockFile 8ad1ad64-express express@*
+120 verbose lock express@* C:\Users\Patrick\AppData\Roaming\npm-cache\8ad1ad64-express.lock
+121 silly lockFile 842f93d5-mongodb mongodb@*
+122 verbose lock mongodb@* C:\Users\Patrick\AppData\Roaming\npm-cache\842f93d5-mongodb.lock
+123 silly lockFile 55e2d188-passport passport@*
+124 verbose lock passport@* C:\Users\Patrick\AppData\Roaming\npm-cache\55e2d188-passport.lock
+125 silly lockFile 06655fe6-nconf nconf@*
+126 verbose lock nconf@* C:\Users\Patrick\AppData\Roaming\npm-cache\06655fe6-nconf.lock
+127 silly lockFile ad03ed78-jade jade@*
+128 verbose lock jade@* C:\Users\Patrick\AppData\Roaming\npm-cache\ad03ed78-jade.lock
+129 silly addNameRange { name: 'mongoose', range: '', hasData: false }
+130 silly addNameRange { name: 'body-parser', range: '', hasData: false }
+131 silly addNameRange { name: 'passport-steam', range: '', hasData: false }
+132 silly addNameRange { name: 'cookie-parser', range: '', hasData: false }
+133 silly addNameRange { name: 'connect-flash', range: '', hasData: false }
+134 silly addNameRange { name: 'connect', range: '', hasData: false }
+135 silly addNameRange { name: 'express-session', range: '', hasData: false }
+136 silly addNameRange { name: 'static-favicon', range: '', hasData: false }
+137 silly addNameRange { name: 'express', range: '', hasData: false }
+138 silly addNameRange { name: 'jade', range: '', hasData: false }
+139 silly addNameRange { name: 'mongodb', range: '', hasData: false }
+140 silly addNameRange { name: 'passport', range: '', hasData: false }
+141 silly addNameRange { name: 'nconf', range: '', hasData: false }
+142 verbose url raw mongoose
+143 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+144 verbose url resolved https://registry.npmjs.org/mongoose
+145 info retry registry request attempt 1 at 19:54:49
+146 http GET https://registry.npmjs.org/mongoose
+147 verbose url raw body-parser
+148 verbose url resolving [ 'https://registry.npmjs.org/', './body-parser' ]
+149 verbose url resolved https://registry.npmjs.org/body-parser
+150 info retry registry request attempt 1 at 19:54:49
+151 http GET https://registry.npmjs.org/body-parser
+152 verbose url raw cookie-parser
+153 verbose url resolving [ 'https://registry.npmjs.org/', './cookie-parser' ]
+154 verbose url resolved https://registry.npmjs.org/cookie-parser
+155 info retry registry request attempt 1 at 19:54:49
+156 http GET https://registry.npmjs.org/cookie-parser
+157 verbose url raw connect-flash
+158 verbose url resolving [ 'https://registry.npmjs.org/', './connect-flash' ]
+159 verbose url resolved https://registry.npmjs.org/connect-flash
+160 info retry registry request attempt 1 at 19:54:49
+161 http GET https://registry.npmjs.org/connect-flash
+162 verbose url raw express-session
+163 verbose url resolving [ 'https://registry.npmjs.org/', './express-session' ]
+164 verbose url resolved https://registry.npmjs.org/express-session
+165 info retry registry request attempt 1 at 19:54:49
+166 http GET https://registry.npmjs.org/express-session
+167 verbose url raw static-favicon
+168 verbose url resolving [ 'https://registry.npmjs.org/', './static-favicon' ]
+169 verbose url resolved https://registry.npmjs.org/static-favicon
+170 info retry registry request attempt 1 at 19:54:49
+171 http GET https://registry.npmjs.org/static-favicon
+172 verbose url raw nconf
+173 verbose url resolving [ 'https://registry.npmjs.org/', './nconf' ]
+174 verbose url resolved https://registry.npmjs.org/nconf
+175 info retry registry request attempt 1 at 19:54:49
+176 http GET https://registry.npmjs.org/nconf
+177 verbose url raw passport-steam
+178 verbose url resolving [ 'https://registry.npmjs.org/', './passport-steam' ]
+179 verbose url resolved https://registry.npmjs.org/passport-steam
+180 info retry registry request attempt 1 at 19:54:49
+181 verbose etag "BH7YLWB3LLE6YO4MTIWA9YQNB"
+182 http GET https://registry.npmjs.org/passport-steam
+183 verbose url raw connect
+184 verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+185 verbose url resolved https://registry.npmjs.org/connect
+186 info retry registry request attempt 1 at 19:54:49
+187 verbose etag "68DYX073AVU5NDTMEJLXXGQG1"
+188 http GET https://registry.npmjs.org/connect
+189 verbose url raw mongodb
+190 verbose url resolving [ 'https://registry.npmjs.org/', './mongodb' ]
+191 verbose url resolved https://registry.npmjs.org/mongodb
+192 info retry registry request attempt 1 at 19:54:50
+193 verbose etag "BOI1BFA2ZCFUXYNT63YN7CKE0"
+194 http GET https://registry.npmjs.org/mongodb
+195 verbose url raw passport
+196 verbose url resolving [ 'https://registry.npmjs.org/', './passport' ]
+197 verbose url resolved https://registry.npmjs.org/passport
+198 info retry registry request attempt 1 at 19:54:50
+199 verbose etag "40AS7QPN4071IBW2HYE2S3MHU"
+200 http GET https://registry.npmjs.org/passport
+201 verbose url raw jade
+202 verbose url resolving [ 'https://registry.npmjs.org/', './jade' ]
+203 verbose url resolved https://registry.npmjs.org/jade
+204 info retry registry request attempt 1 at 19:54:50
+205 verbose etag "2P1NZKVLAJ1HSBHRODLHSNUC9"
+206 http GET https://registry.npmjs.org/jade
+207 verbose url raw express
+208 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+209 verbose url resolved https://registry.npmjs.org/express
+210 info retry registry request attempt 1 at 19:54:50
+211 verbose etag "5RYR34IJO3VMXZ5H8XN20AM2Y"
+212 http GET https://registry.npmjs.org/express
+213 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+214 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+215 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+216 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+217 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+218 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+219 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+220 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+221 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+222 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+223 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+224 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+225 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+226 info retry registry request attempt 2 at 19:55:00
+227 http GET https://registry.npmjs.org/cookie-parser
+228 info retry registry request attempt 2 at 19:55:00
+229 http GET https://registry.npmjs.org/mongoose
+230 info retry registry request attempt 2 at 19:55:00
+231 http GET https://registry.npmjs.org/connect-flash
+232 info retry registry request attempt 2 at 19:55:00
+233 http GET https://registry.npmjs.org/body-parser
+234 info retry registry request attempt 2 at 19:55:00
+235 http GET https://registry.npmjs.org/express-session
+236 info retry registry request attempt 2 at 19:55:00
+237 http GET https://registry.npmjs.org/nconf
+238 info retry registry request attempt 2 at 19:55:00
+239 http GET https://registry.npmjs.org/static-favicon
+240 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+241 info retry registry request attempt 2 at 19:55:00
+242 verbose etag "BOI1BFA2ZCFUXYNT63YN7CKE0"
+243 http GET https://registry.npmjs.org/mongodb
+244 info retry registry request attempt 2 at 19:55:00
+245 verbose etag "40AS7QPN4071IBW2HYE2S3MHU"
+246 http GET https://registry.npmjs.org/passport
+247 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+248 info retry registry request attempt 2 at 19:55:00
+249 verbose etag "2P1NZKVLAJ1HSBHRODLHSNUC9"
+250 http GET https://registry.npmjs.org/jade
+251 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+252 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+253 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+254 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+255 info retry registry request attempt 2 at 19:55:00
+256 verbose etag "5RYR34IJO3VMXZ5H8XN20AM2Y"
+257 http GET https://registry.npmjs.org/express
+258 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+259 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+260 info retry registry request attempt 2 at 19:55:00
+261 verbose etag "68DYX073AVU5NDTMEJLXXGQG1"
+262 http GET https://registry.npmjs.org/connect
+263 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+264 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+265 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+266 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+267 info retry registry request attempt 2 at 19:55:01
+268 verbose etag "BH7YLWB3LLE6YO4MTIWA9YQNB"
+269 http GET https://registry.npmjs.org/passport-steam
+270 info retry will retry, error on last attempt: Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+271 info retry registry request attempt 3 at 19:56:00
+272 http GET https://registry.npmjs.org/mongoose
+273 info retry registry request attempt 3 at 19:56:00
+274 http GET https://registry.npmjs.org/cookie-parser
+275 info retry registry request attempt 3 at 19:56:00
+276 http GET https://registry.npmjs.org/express-session
+277 info retry registry request attempt 3 at 19:56:00
+278 http GET https://registry.npmjs.org/nconf
+279 info retry registry request attempt 3 at 19:56:00
+280 verbose etag "BOI1BFA2ZCFUXYNT63YN7CKE0"
+281 http GET https://registry.npmjs.org/mongodb
+282 info retry registry request attempt 3 at 19:56:00
+283 http GET https://registry.npmjs.org/static-favicon
+284 silly lockFile e0858070-mongoose mongoose@*
+285 error Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
+285 error     at ClientRequest.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\main.js:525:26)
+285 error     at ClientRequest.g (events.js:185:14)
+285 error     at ClientRequest.EventEmitter.emit (events.js:88:17)
+285 error     at HTTPParser.parserOnIncomingClient [as onIncoming] (http.js:1455:7)
+285 error     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:111:23)
+285 error     at CleartextStream.socketOnData [as ondata] (http.js:1366:20)
+285 error     at CleartextStream.CryptoStream._push (tls.js:495:27)
+285 error     at SecurePair.cycle (tls.js:849:20)
+285 error     at EncryptedStream.CryptoStream.write (tls.js:230:13)
+285 error     at Socket.ondata (stream.js:38:26)
+286 error If you need help, you may report this log at:
+286 error     <http://github.com/isaacs/npm/issues>
+286 error or email it to:
+286 error     <npm-@googlegroups.com>
+287 error System Windows_NT 6.1.7601
+288 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+289 error cwd C:\Users\Patrick\csgodb\csgo-drawing-board
+290 error node -v v0.8.8
+291 error npm -v 1.1.59
+292 verbose exit [ 1, true ]
