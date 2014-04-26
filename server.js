@@ -114,7 +114,7 @@ API ROUTES
 app.get('/api/:type(u|user)/:user', function(req,res) {
 	db.findUser(req.params.user, function(err, user) {
 		if (user) {
-			res.json({exists: true, error: err, user:user.username});
+			res.json({exists: true, error: err, user:user.name});
 		} else {
 			res.json({exists: false, error: err, user:req.params.user});
 		}
@@ -154,8 +154,8 @@ app.get('/auth/steam/return',
 	function(req, res) {
 		db.findUserBySteamId(req.user.id, function(err,user){
 			if (user) {
-				req.user.name = user.username;
-				res.redirect('/u/'+user.username);
+				req.user.name = user.name;
+				res.redirect('/u/'+user.name);
 			}
 			else {
 				res.redirect('/signup');

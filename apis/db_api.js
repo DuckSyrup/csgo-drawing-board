@@ -117,7 +117,7 @@ function Db(username,pass) {
     
     //Finds user by username
     this.findUser = function(username, cb) {
-        User.findOne({username:username}, function(err,user){
+        User.findOne({name:username}, function(err,user){
             cb(err,user);
         });
     }
