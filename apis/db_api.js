@@ -124,7 +124,7 @@ function Db(username,pass) {
     
     //Find user by steam ID
     this.findUserBySteamId = function(steamID, cb) {
-        User.findOne({steamID:steamID}, function(err,user){
+        User.findOne({id:steamID}, function(err,user){
             cb(err,user);
         });
     }
