@@ -35,7 +35,7 @@ function Db(username,pass) {
         stratName: String,
         desc: String,
         owner: {
-            type: String,
+            cat: String, //Category
             name: String
         },
         map: String,
@@ -84,11 +84,11 @@ function Db(username,pass) {
     
     //Creates a new strategy entry into db
     this.newStrat = function(obj, cb) {
-        if (obj.stratName && obj.owner.name && obj.owner.type && obj.map) {
+        if (obj.stratName && obj.owner.name && obj.owner.cat && obj.map) {
             var strat = new Strat({
                 stratName: obj.stratName,
                 owner: obj.owner,
-                desc: obj.stratDescription,
+                desc: obj.desc,
                 map: obj.map,
                 root: ""
             });
@@ -143,7 +143,7 @@ function Db(username,pass) {
     
     //Finds all strategies by a user.
     this.findUserStrats = function(username, cb) {
-        Strat.find({username:username}, function(err,strats){
+        Strat.find({"owner.name":username}, function(err,strats){
             cb(err,strats);
         });
     }

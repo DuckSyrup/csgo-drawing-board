@@ -199,8 +199,9 @@ app.post('/create/init', function(req,res) {
 	if (req.body.name && req.body.map && req.user && req.user.name) {
 		var newStrat = {
 			stratName: req.body.name,
-			username: req.user.name,
-			map: req.body.map
+			owner: {name: req.user.name, cat: 'user'},
+			map: req.body.map,
+			desc: ""
 		};
 		db.newStrat(newStrat, function(err, strat){
 			if (err) {
