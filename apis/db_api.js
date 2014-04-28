@@ -95,7 +95,7 @@ function Db(username,pass) {
             strat.save(function(err, strat){
                 var id = strat._id;
                 var rootFrame = new Frame({
-                    desc: "",
+                    desc: obj.desc || "",
                     event: {
                         desc: "Start of round",
                         icon: ""
@@ -117,35 +117,53 @@ function Db(username,pass) {
     
     //Finds user by username
     this.findUser = function(username, cb) {
-        User.findOne({name:username}, function(err,user){
-            cb(err,user);
-        });
+        if (username) {
+            User.findOne({name:username}, function(err,user){
+                cb(err,user);
+            });
+        }
+        else {
+            cb("must provide username", null);
+        }
+        
     }
     
     //Find user by steam ID
     this.findUserBySteamId = function(steamID, cb) {
-        User.findOne({id:steamID}, function(err,user){
-            cb(err,user);
-        });
+        if (steamID) {
+            User.findOne({id:steamID}, function(err,user){
+                cb(err,user);
+            });
+        }
+        else {
+            cb("must provide steamID", null);
+        }
+        
     }
     
     //Find strat by username and strat name
     this.findStrat = function(obj, cb){
-        if (obj.stratName && obj.username) {
-            Strat.findOne({stratName:obj.stratName, username:obj.username}, function(err,strat){
+        if (obj.stratName && obj.owner.name && obj.owner.cat) {
+            Strat.findOne({stratName:obj.stratName, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
                 cb(err,strat);
             });
         }
         else {
-            cb('must provide stratName and username',null);
+            cb('must provide stratName and owner.name and owner.cat',null);
         }
     }
     
     //Finds all strategies by a user.
-    this.findUserStrats = function(username, cb) {
-        Strat.find({"owner.name":username}, function(err,strats){
-            cb(err,strats);
-        });
+    this.findUserStrats = function(obj, cb) {
+        if (obj.name && obj.cat) {
+            Strat.find({'owner.name':obj.name, 'owner.cat':obj.cat}, function(err,strats){
+                cb(err,strats);
+            });
+        }
+        else {
+            cb("must provide name and cat", null);
+        }
+        
     }
     mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
 }
