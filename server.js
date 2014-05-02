@@ -229,7 +229,7 @@ app.post('/create/init', function(req,res) {
 app.get('/:type(u|user)/:user', function(req,res) {
 	db.findUser(req.params.user, function(err, user) {
 		if (user) {
-			db.findUserStrats(req.params.user, function(err, strats) {
+			db.findUserStrats({name:req.params.user, cat:'user'}, function(err, strats) {
 				render(req, res, 'user', {error: err, user: req.params.user, strats:strats});
 			});
 		} else {
