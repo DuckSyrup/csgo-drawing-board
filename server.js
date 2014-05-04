@@ -69,6 +69,10 @@ var db = require('./apis/db_api').db(dbUser,dbPass);
 app.use(express.static(__dirname + '/www/public'));
 app.set('views', __dirname + '/www/views');
 app.set('view engine', 'jade');
+app.use(function(req, res, next) {
+	app.locals.pretty = true;
+	next();
+});
 
 //Middleware to use POSTs
 app.use(bodyParser.json());
