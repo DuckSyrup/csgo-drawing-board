@@ -97,8 +97,8 @@ passport.deserializeUser(function(obj,done){
 });
 
 passport.use(new SteamStrategy({
-	returnURL: 'http://localhost:8080/auth/steam/return',//return url here
-	realm: 'http://localhost:8080/',
+	returnURL: 'http://' + ip + ':' + port + '/auth/steam/return',//return url here
+	realm: 'http://' + ip + ':' + port + '/',
 	},
 	function(identifier, profile, done) {
 		process.nextTick(function() {
