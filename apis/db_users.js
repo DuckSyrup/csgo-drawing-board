@@ -66,7 +66,7 @@ function Db(username,pass) {
     //Find given fields in User
     this.findInUser = function(obj, cb) {
         if (obj.params && obj.name) {
-            var paramString = obj.params.split(' ');
+            var paramString = obj.params.join(' ');
             User.find({name:obj.name}, paramString, function(err, user){
                 cb(err, user);
             });
