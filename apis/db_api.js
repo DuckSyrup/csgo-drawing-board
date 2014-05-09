@@ -18,17 +18,13 @@
 */
 
 var mongoose = require('mongoose');
+var db_users = require('./db_users').db;
 
 var db = mongoose.connection;
 
 db.on('error', console.error);
 
 function Db(username,pass) {
-    //Schema for a user
-    var userSchema = new mongoose.Schema({
-        id: String,
-        name: String
-    });
     
     //Schema for a strat
     var stratSchema = new mongoose.Schema({
@@ -62,25 +58,11 @@ function Db(username,pass) {
         editors: [Object]
     });
     
-    var User = mongoose.model('User', userSchema);
     var Strat = mongoose.model('Strat', stratSchema);
     var Frame = mongoose.model('Frame', frameSchema);
     
     //Creates a new user entry into db
-    this.newUser = function(obj, cb) {
-        if (obj.steamID && obj.username) {
-            var usr = new User({
-                id: obj.steamID,
-                name: obj.username
-            });
-            usr.save(function(err, user){
-                cb(err, user);
-            });
-        }
-        else {
-            cb('must include username and steamID', null);
-        }
-    }
+    this.newUser = db_users.newUser;
     
     //Creates a new strategy entry into db
     this.newStrat = function(obj, cb) {
@@ -116,30 +98,10 @@ function Db(username,pass) {
     }
     
     //Finds user by username
-    this.findUser = function(username, cb) {
-        if (username) {
-            User.findOne({name:username}, function(err,user){
-                cb(err,user);
-            });
-        }
-        else {
-            cb("must provide username", null);
-        }
-        
-    }
+    this.findUser = db_users.findUser;
     
     //Find user by steam ID
-    this.findUserBySteamId = function(steamID, cb) {
-        if (steamID) {
-            User.findOne({id:steamID}, function(err,user){
-                cb(err,user);
-            });
-        }
-        else {
-            cb("must provide steamID", null);
-        }
-        
-    }
+    this.findUserBySteamId = db.users.findUserBySteamId;
     
     //Find strat by username and strat name
     this.findStrat = function(obj, cb){
@@ -164,6 +126,22 @@ function Db(username,pass) {
             cb("must provide name and cat", null);
         }
         
+    }
+    
+    //Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
+    this.deleteFrame = function(obj, cb) {
+        if (checkChildren(obj.strat, obj.frame)) {
+            
+        }
+    }
+    var checkChildren = function(obj) {
+        Frame.findOne({strat: obj.strat, _id: obj.frame}, function(err, frame){
+            var children = frame.children;
+            
+            children.forEach(function(e, i, a){
+                
+            });
+        });
     }
     mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
 }
