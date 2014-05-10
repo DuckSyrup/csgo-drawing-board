@@ -18,8 +18,8 @@
 */
 
 var mongoose = require('mongoose');
-var db_users = require('./db_users').db;
-var db_strats = require('./db_strats').db;
+var db_users = require('./db_api/users').db;
+var db_strats = require('./db_api/strats').db;
 
 var db = mongoose.connection;
 
