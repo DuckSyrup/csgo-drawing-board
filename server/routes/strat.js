@@ -29,11 +29,13 @@ module.exports = function(app,db,utils) {
 	//Create a strategy and load it into the DB
 	app.post('/create/init', function(req,res) {
 		if (req.body.name && req.body.map && req.user && req.user.name) {
+			var desc;
+			req.body.desc ? desc = req.body.desc : desc = '';
 			var newStrat = {
 				stratName: req.body.name,
 				owner: {name: req.user.name, cat: 'user'},
 				map: req.body.map,
-				desc: ""
+				desc: desc
 			};
 			db.newStrat(newStrat, function(err, strat){
 				if (err) {
