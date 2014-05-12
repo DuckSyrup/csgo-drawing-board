@@ -18,29 +18,15 @@
 */
 
 var mongoose = require('mongoose');
+var db_users = require('./db_api/users').db;
+var db_strats = require('./db_api/strats').db;
 
 var db = mongoose.connection;
 
 db.on('error', console.error);
 
 function Db(username,pass) {
-    //Schema for a user
-    var userSchema = new mongoose.Schema({
-        id: String,
-        name: String
-    });
-    
-    //Schema for a strat
-    var stratSchema = new mongoose.Schema({
-        stratName: String,
-        desc: String,
-        owner: {
-            cat: String, //Category
-            name: String
-        },
-        map: String,
-        root: String
-    });
+
     
     //Schema for a frame of a strat
     var frameSchema = new mongoose.Schema({
@@ -61,109 +47,47 @@ function Db(username,pass) {
         name: String,
         editors: [Object]
     });
-    
-    var User = mongoose.model('User', userSchema);
-    var Strat = mongoose.model('Strat', stratSchema);
+
     var Frame = mongoose.model('Frame', frameSchema);
     
     //Creates a new user entry into db
-    this.newUser = function(obj, cb) {
-        if (obj.steamID && obj.username) {
-            var usr = new User({
-                id: obj.steamID,
-                name: obj.username
-            });
-            usr.save(function(err, user){
-                cb(err, user);
-            });
-        }
-        else {
-            cb('must include username and steamID', null);
-        }
-    }
+    this.newUser = db_users.newUser;
+    
+    //Edits a user's display name
+    this.editUserDisplayName = db_users.editUserDisplayName;
+    
+    //Find given fields in User
+    this.findInUser = db_users.findInUser;
     
     //Creates a new strategy entry into db
-    this.newStrat = function(obj, cb) {
-        if (obj.stratName && obj.owner.name && obj.owner.cat && obj.map) {
-            var strat = new Strat({
-                stratName: obj.stratName,
-                owner: obj.owner,
-                desc: obj.desc,
-                map: obj.map,
-                root: ""
-            });
-            strat.save(function(err, strat){
-                var id = strat._id;
-                var rootFrame = new Frame({
-                    desc: obj.desc || "",
-                    event: {
-                        desc: "Start of round",
-                        icon: ""
-                    },
-                    parent: null,
-                    children: [],
-                    editors: [],
-                    strat: id
-                });
-                rootFrame.save(function(err, root){
-                    Strat.update({_id: id}, {root: root._id}, {}, cb(err, strat));
-                });
-            });
-        }
-        else {
-            cb('must include username, stratName, and map', null);
-        }
-    }
+    this.newStrat = db_strats.newStrat;
     
     //Finds user by username
-    this.findUser = function(username, cb) {
-        if (username) {
-            User.findOne({name:username}, function(err,user){
-                cb(err,user);
-            });
-        }
-        else {
-            cb("must provide username", null);
-        }
-        
-    }
+    this.findUser = db_users.findUser;
     
     //Find user by steam ID
-    this.findUserBySteamId = function(steamID, cb) {
-        if (steamID) {
-            User.findOne({id:steamID}, function(err,user){
-                cb(err,user);
-            });
-        }
-        else {
-            cb("must provide steamID", null);
-        }
-        
-    }
+    this.findUserBySteamId = db.users.findUserBySteamId;
     
     //Find strat by username and strat name
-    this.findStrat = function(obj, cb){
-        if (obj.stratName && obj.owner.name && obj.owner.cat) {
-            Strat.findOne({stratName:obj.stratName, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
-                cb(err,strat);
-            });
-        }
-        else {
-            cb('must provide stratName and owner.name and owner.cat',null);
-        }
-    }
+    this.findStrat = db_strats.findStrat;
     
     //Finds all strategies by a user.
-    this.findUserStrats = function(obj, cb) {
-        if (obj.name && obj.cat) {
-            Strat.find({'owner.name':obj.name, 'owner.cat':obj.cat}, function(err,strats){
-                cb(err,strats);
+    this.findUserStrats = db_strats.findUserStrats;
+    
+    //Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
+    this.deleteFrame = function(obj, cb) {
+        if (checkChildren(obj.strat, obj.frame)) {
+            
+        }
+    }
+    var checkChildren = function(obj) {
+        Frame.findOne({strat: obj.strat, _id: obj.frame}, function(err, frame){
+            var children = frame.children;
+            
+            children.forEach(function(e, i, a){
+                
             });
-        }
-        else {
-            cb("must provide name and cat", null);
-        }
-        
+        });
     }
     mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
 }
