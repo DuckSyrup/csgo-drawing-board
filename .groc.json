@@ -1,5 +1,6 @@
 {
 	"glob": ["*.js", "**/*.js"],
 	"except": ["node_modules/**/*.js", "www/**/*.js"],
+	"index": "README.md",
 	"github": true
 }
