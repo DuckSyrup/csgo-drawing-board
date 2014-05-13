@@ -1,6 +1,5 @@
 {
-	"glob": ["*.js", "**/*.js"],
+	"glob": ["*.js", "**/*.js", "README.md"],
 	"except": ["node_modules/**/*.js", "www/**/*.js"],
-	"index": "server.js",
 	"github": true
 }
