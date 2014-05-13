@@ -1,0 +1,5 @@
+{
+	"glob": ["*.js", "**/*.js"],
+	"except": ["node_modules/**/*.js", "www/**/*.js"],
+	"github": true
+}
