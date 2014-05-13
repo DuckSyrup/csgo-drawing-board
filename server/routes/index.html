@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><title>server/routes/index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="server/routes/index"><meta name="groc-project-path" content="server/routes/index.js"><meta name="groc-github-url" content="https://github.com/DuckSyrup/csgo-drawing-board"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/DuckSyrup/csgo-drawing-board/blob/master/server/routes/index.js">server/routes/index.js</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>Copyright 2014 Duck Syrup</p>
+
+<p>This file is part of CS:GO Drawing Board.</p>
+
+<p>CS:GO Drawing Board is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>CS:GO Drawing Board is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU Affero General Public License
+along with CS:GO Drawing Board.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p></div></div><div class="code"><div class="wrapper"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">,</span><span class="nx">passport</span><span class="p">,</span><span class="nx">utils</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1">//Main routes</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./main&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">,</span><span class="nx">utils</span><span class="p">);</span>
+  
+  <span class="c1">//Auth routes</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./auth&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">,</span><span class="nx">passport</span><span class="p">);</span>
+  
+  <span class="c1">//API routes</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./api&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">);</span>
+  
+  <span class="c1">//User routes</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./user&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">,</span><span class="nx">utils</span><span class="p">);</span>
+  
+  <span class="c1">//Strat routes</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./strat&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">,</span><span class="nx">utils</span><span class="p">);</span>
+<span class="p">}</span></div></div></div></div></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><title>apis/db_api</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="apis/db_api"><meta name="groc-project-path" content="apis/db_api.js"><meta name="groc-github-url" content="https://github.com/DuckSyrup/csgo-drawing-board"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/DuckSyrup/csgo-drawing-board/blob/master/apis/db_api.js">apis/db_api.js</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>Copyright 2014 Duck Syrup</p>
+
+<p>This file is part of CS:GO Drawing Board.</p>
+
+<p>CS:GO Drawing Board is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>CS:GO Drawing Board is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU Affero General Public License
+along with CS:GO Drawing Board.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p></div></div><div class="code"><div class="wrapper"><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">db_users</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./db_api/users&#39;</span><span class="p">).</span><span class="nx">db</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">db_strats</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./db_api/strats&#39;</span><span class="p">).</span><span class="nx">db</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">Db</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="nx">pass</span><span class="p">)</span> <span class="p">{</span>
+
+    
+    <span class="c1">//Schema for a frame of a strat</span>
+    <span class="kd">var</span> <span class="nx">frameSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+        <span class="nx">desc</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">desc</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+            <span class="nx">icon</span><span class="o">:</span> <span class="nb">String</span>
+        <span class="p">},</span>
+        <span class="nx">elem</span><span class="o">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">],</span>
+        <span class="nx">parent</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">children</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+        <span class="nx">editors</span><span class="o">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">],</span>
+        <span class="nx">strat</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="p">});</span>
+    
+    <span class="c1">//Schema for an organization</span>
+    <span class="kd">var</span> <span class="nx">orgSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">editors</span><span class="o">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">Frame</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">,</span> <span class="nx">frameSchema</span><span class="p">);</span>
+    
+    <span class="c1">//Creates a new user entry into db</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">newUser</span> <span class="o">=</span> <span class="nx">db_users</span><span class="p">.</span><span class="nx">newUser</span><span class="p">;</span>
+    
+    <span class="c1">//Edits a user&#39;s display name</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">editUserDisplayName</span> <span class="o">=</span> <span class="nx">db_users</span><span class="p">.</span><span class="nx">editUserDisplayName</span><span class="p">;</span>
+    
+    <span class="c1">//Find given fields in User</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">findInUser</span> <span class="o">=</span> <span class="nx">db_users</span><span class="p">.</span><span class="nx">findInUser</span><span class="p">;</span>
+    
+    <span class="c1">//Creates a new strategy entry into db</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">newStrat</span> <span class="o">=</span> <span class="nx">db_strats</span><span class="p">.</span><span class="nx">newStrat</span><span class="p">;</span>
+    
+    <span class="c1">//Finds user by username</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">findUser</span> <span class="o">=</span> <span class="nx">db_users</span><span class="p">.</span><span class="nx">findUser</span><span class="p">;</span>
+    
+    <span class="c1">//Find user by steam ID</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">findUserBySteamId</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">findUserBySteamId</span><span class="p">;</span>
+    
+    <span class="c1">//Find strat by username and strat name</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">findStrat</span> <span class="o">=</span> <span class="nx">db_strats</span><span class="p">.</span><span class="nx">findStrat</span><span class="p">;</span>
+    
+    <span class="c1">//Finds all strategies by a user.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">findUserStrats</span> <span class="o">=</span> <span class="nx">db_strats</span><span class="p">.</span><span class="nx">findUserStrats</span><span class="p">;</span>
+    
+    <span class="c1">//Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">deleteFrame</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">checkChildren</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">strat</span><span class="p">,</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">frame</span><span class="p">))</span> <span class="p">{</span>
+            
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">checkChildren</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">Frame</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="nx">strat</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">strat</span><span class="p">,</span> <span class="nx">_id</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">frame</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">frame</span><span class="p">){</span>
+            <span class="kd">var</span> <span class="nx">children</span> <span class="o">=</span> <span class="nx">frame</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+            
+            <span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">a</span><span class="p">){</span>
+                
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://&#39;</span><span class="o">+</span><span class="nx">username</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nx">pass</span><span class="o">+</span><span class="s1">&#39;@ds047207.mongolab.com:47207/csgodb&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">db</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="nx">pass</span><span class="p">){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Db</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="nx">pass</span><span class="p">);</span>
+<span class="p">}</span></div></div></div></div></body></html>
