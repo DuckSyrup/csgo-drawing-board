@@ -17,10 +17,10 @@
  * along with CS:GO Drawing Board.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-//# server
+// # server
 //Main program file--loads all APIs and determines routing.
 
-//## Load dependencies
+// ## Load dependencies
 
 var express = require('express');
 app = express();
@@ -38,7 +38,7 @@ var passport = require('passport'),
 	fs = require('fs'),
 	io = require('./apis/socket_io_api');
 
-//## Read config
+// ## Read config
 
 //Use nconf to read configuration options.  Command line args override config.json which overrides defaults
 nconf.argv().file('./config.json');
