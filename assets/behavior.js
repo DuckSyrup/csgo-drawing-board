@@ -854,8 +854,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "strat routes user",
-                    "slug": "strat-routes-user",
+                    "title": "server routes user",
+                    "slug": "server-routes-user",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -887,7 +887,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "strat routes user"
+                "title": "server routes user"
               },
               "depth": 3,
               "outline": [
