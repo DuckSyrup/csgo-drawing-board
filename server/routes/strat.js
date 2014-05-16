@@ -49,7 +49,7 @@ module.exports = function(app,db,utils) {
 	});
 	
 	// ## Delete a strategy
-	// This will probably be used in the API
+	// This will probably be replaced by the API.
 	app.get('/:type(u|user)/:user/:strat/delete', function(req,res) {
 		res.send('delete');
 	});
