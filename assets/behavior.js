@@ -413,7 +413,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "projectPath": "server/index.js",
             "targetPath": "server/index",
             "pageTitle": "server/index",
-            "title": "index"
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "server index",
+                "slug": "server-index",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "server index"
           },
           "depth": 2,
           "outline": []
@@ -441,10 +451,57 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/api.js",
                 "targetPath": "server/routes/api",
                 "pageTitle": "server/routes/api",
-                "title": "api"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "server routes api",
+                    "slug": "server-routes-api",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Get a user",
+                        "slug": "get-a-user"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Delete a user strat",
+                        "slug": "delete-a-user-strat"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "server routes api"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Get a user",
+                    "slug": "get-a-user"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Delete a user strat",
+                    "slug": "delete-a-user-strat"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -461,10 +518,57 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/auth.js",
                 "targetPath": "server/routes/auth",
                 "pageTitle": "server/routes/auth",
-                "title": "auth"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "server routes auth",
+                    "slug": "server-routes-auth",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Login through Steam",
+                        "slug": "login-through-steam"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Complete Steam login",
+                        "slug": "complete-steam-login"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "server routes auth"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Login through Steam",
+                    "slug": "login-through-steam"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Complete Steam login",
+                    "slug": "complete-steam-login"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -481,10 +585,105 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/index.js",
                 "targetPath": "server/routes/index",
                 "pageTitle": "server/routes/index",
-                "title": "index"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "server routes index",
+                    "slug": "server-routes-index",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Main routes",
+                        "slug": "main-routes"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Auth routes",
+                        "slug": "auth-routes"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "API routes",
+                        "slug": "api-routes"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "User routes",
+                        "slug": "user-routes"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Strat routes",
+                        "slug": "strat-routes"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "server routes index"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Main routes",
+                    "slug": "main-routes"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Auth routes",
+                    "slug": "auth-routes"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "API routes",
+                    "slug": "api-routes"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "User routes",
+                    "slug": "user-routes"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Strat routes",
+                    "slug": "strat-routes"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -501,10 +700,41 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/main.js",
                 "targetPath": "server/routes/main",
                 "pageTitle": "server/routes/main",
-                "title": "main"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "server routes main",
+                    "slug": "server-routes-main",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Main page",
+                        "slug": "main-page"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "server routes main"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Main page",
+                    "slug": "main-page"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -521,10 +751,89 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/strat.js",
                 "targetPath": "server/routes/strat",
                 "pageTitle": "server/routes/strat",
-                "title": "strat"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "server routes strat",
+                    "slug": "server-routes-strat",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Create a strategy",
+                        "slug": "create-a-strategy"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Finalizing strategy creation",
+                        "slug": "finalizing-strategy-creation"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Edit a strategy",
+                        "slug": "edit-a-strategy"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Delete a strategy",
+                        "slug": "delete-a-strategy"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "server routes strat"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Create a strategy",
+                    "slug": "create-a-strategy"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Finalizing strategy creation",
+                    "slug": "finalizing-strategy-creation"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Edit a strategy",
+                    "slug": "edit-a-strategy"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Delete a strategy",
+                    "slug": "delete-a-strategy"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -541,10 +850,73 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "server/routes/user.js",
                 "targetPath": "server/routes/user",
                 "pageTitle": "server/routes/user",
-                "title": "user"
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "strat routes user",
+                    "slug": "strat-routes-user",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Sign up",
+                        "slug": "sign-up"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Process the signup",
+                        "slug": "process-the-signup"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "View a user",
+                        "slug": "view-a-user"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "strat routes user"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Sign up",
+                    "slug": "sign-up"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Process the signup",
+                    "slug": "process-the-signup"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "View a user",
+                    "slug": "view-a-user"
+                  },
+                  "depth": 2
+                }
+              ]
             }
           ]
         }, {
@@ -563,10 +935,41 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "projectPath": "server/utils.js",
             "targetPath": "server/utils",
             "pageTitle": "server/utils",
-            "title": "utils"
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "server utils",
+                "slug": "server-utils",
+                "isFileHeader": true
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Main render function to maintain error handling and session usage across routes.",
+                    "slug": "main-render-function-to-maintain-error-handling-and-session-usage-across-routes"
+                  },
+                  "depth": 2
+                }
+              ]
+            },
+            "title": "server utils"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Main render function to maintain error handling and session usage across routes.",
+                "slug": "main-render-function-to-maintain-error-handling-and-session-usage-across-routes"
+              },
+              "depth": 2
+            }
+          ]
         }
       ]
     }
