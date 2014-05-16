@@ -1,4 +1,4 @@
-// # strat routes user
+// # server routes user
 
 module.exports = function(app,db,utils) {
 	// ## Sign up
