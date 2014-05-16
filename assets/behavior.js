@@ -949,8 +949,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Main render function to maintain error handling and session usage across routes.",
-                    "slug": "main-render-function-to-maintain-error-handling-and-session-usage-across-routes"
+                    "title": "Main render function",
+                    "slug": "main-render-function"
                   },
                   "depth": 2
                 }
@@ -964,8 +964,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "Main render function to maintain error handling and session usage across routes.",
-                "slug": "main-render-function-to-maintain-error-handling-and-session-usage-across-routes"
+                "title": "Main render function",
+                "slug": "main-render-function"
               },
               "depth": 2
             }
