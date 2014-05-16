@@ -1,5 +1,8 @@
+// # server routes auth
+// Handle all authorization of users through Steam.
+
 module.exports = function(app,db,passport) {
-	//Login through Steam
+	// ## Login through Steam
 	app.get('/auth/steam',
 		passport.authenticate('steam', {failureRedirect: '/'}),
 		function(req,res) {
@@ -7,7 +10,7 @@ module.exports = function(app,db,passport) {
 		}
 	);
 	
-	//Complete Steam login
+	// ## Complete Steam login
 	app.get('/auth/steam/return',
 		passport.authenticate('steam', {failureRedirect: '/'}),
 		function(req, res) {

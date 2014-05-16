@@ -1,18 +1,20 @@
+// # server routes index
+
 module.exports = function(app,db,passport,utils) {
 	
-	//Main routes
+	// ## Main routes
 	require('./main')(app,utils);
 	
-	//Auth routes
+	// ## Auth routes
 	require('./auth')(app,db,passport);
 	
-	//API routes
+	// ## API routes
 	require('./api')(app,db);
 	
-	//User routes
+	// ## User routes
 	require('./user')(app,db,utils);
 	
-	//Strat routes
+	// ## Strat routes
 	require('./strat')(app,db,utils);
 }
 

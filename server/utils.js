@@ -1,16 +1,24 @@
+// # server utils
+
+// ## Main render function to maintain error handling and session usage across routes.
+// Takes the request and response objects as well as the jade page to load and options, which will include any errors.
+
 exports.render = function(req, res, page, options) {
 	if (!options) options = {};
-	//Handle dumb flash issues
+	// Error handling
 	if (options.error) {
 		if (options.error.length == 0)
 			delete options.error;
 	}
+	// Message handling
 	if (options.message) {
 		if (options.message.length == 0)
 			delete options.message;
 	}
+	// Pass on session data
 	if (req.user && req.user.name)
 		options.currUser = req.user.name;
+	// Render the page
 	res.render(page, options);
 }
 

@@ -1,10 +1,12 @@
+// # strat routes user
+
 module.exports = function(app,db,utils) {
-	//Sign up
+	// ## Sign up
 	app.get('/signup', function(req,res) {
 		utils.render(req, res, 'signup', {error: req.flash('error')});
 	});
 	
-	//Process the signup
+	// ## Process the signup
 	app.post('/signup/init', function(req,res) {
 		var newUser= {
 			username: req.body.name,
@@ -22,7 +24,7 @@ module.exports = function(app,db,utils) {
 	});
 	
 	
-	//View a user
+	// ## View a user
 	app.get('/:type(u|user)/:user', function(req,res) {
 		db.findUser(req.params.user, function(err, user) {
 			if (user) {

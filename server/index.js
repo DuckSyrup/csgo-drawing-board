@@ -1,6 +1,11 @@
-module.exports = function(app,db,passport) {
-	var utils = require('./utils');
+// # server index
 
+module.exports = function(app,db,passport) {
+	// We need to load utils, which has the main render function.
+	var utils = require('./utils');
+	
+	// Load routes and pass the appropriate modules to them.
+	
 	require('./routes')(app,db,passport,utils);
 }
 

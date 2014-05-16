@@ -1,5 +1,8 @@
+// # server routes strat
+// Handle all routes relating to strategies
+
 module.exports = function(app,db,utils) {
-	//Create a strategy
+	// ## Create a strategy
 	app.get('/create', function(req,res) {
 		if (req.user && req.user.name)
 			utils.render(req, res, 'create', {error: req.flash('error')});
@@ -7,7 +10,7 @@ module.exports = function(app,db,utils) {
 			utils.render(req, res, 'create', {error: 'You are not logged in.'});
 	});
 	
-	//Create a strategy and load it into the DB
+	// ## Finalizing strategy creation
 	app.post('/create/init', function(req,res) {
 		if (req.body.name && req.body.map && req.user && req.user.name) {
 			var desc;
@@ -40,12 +43,13 @@ module.exports = function(app,db,utils) {
 		}
 	});
 	
-	//Edit a strategy
+	// ## Edit a strategy
 	app.get('/:type(u|user)/:user/:strat', function(req,res) {
 		utils.render(req, res, 'editor');
 	});
 	
-	//Delete a strategy
+	// ## Delete a strategy
+	// This will probably be used in the API
 	app.get('/:type(u|user)/:user/:strat/delete', function(req,res) {
 		res.send('delete');
 	});

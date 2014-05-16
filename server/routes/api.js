@@ -1,21 +1,29 @@
+// # server routes api
+// Handle all API requests.
+
 module.exports = function(app, db) {
-	//Get a user.  Does not return strats.
+	// ## Get a user
+	// Does not return strats.
 	app.get('/api/:type(u|user)/:user', function(req,res) {
 		db.findUser(req.params.user, function(err, user) {
 			if (user) {
+				// If the user that was passed exists, pass back info.
 				res.json({exists: true, error: err, user:user.name});
 			} else {
+				// Otherwise, pass back an error.
 				res.json({exists: false, error: err, user:req.params.user});
 			}
 		});
 	});
 	
-	//Delete a user strat
+	// ## Delete a user strat
 	app.get('/api/:type(u|user)/:user/:strat/delete', function(req,res) {
 		if (req.user && req.user.name && req.user.name == req.params.user) {
-			//Delete strat
+			// If the user trying to delete is an authorized user, delete the strat.
+			// This is not currently implemented.
 			res.json({worked: true, error: null, strat: req.params.strat, user:req.params.user});
 		} else {
+			// Otherwise, return an error that you are not logged in.
 			res.json({worked: false, error: "You aren't logged in.", strat: req.params.strat, user:req.params.user});
 		}
 	});
