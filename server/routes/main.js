@@ -1,4 +1,4 @@
-// # server routes main
+// # main
 // All "miscellaneous" or "main" routes that are not devoted to a specific function.  Currently just includes handling of /, aka the homepage.
 
 module.exports = function(app,utils) {

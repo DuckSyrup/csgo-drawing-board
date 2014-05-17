@@ -1,6 +1,10 @@
+// # socket.io api
+
+// Load socket.io
 var io = require('socket.io');
 
 exports.start = function(server) {
+    // Start listening
     io.listen(server);
     //io.on('connection', function(socket){
     //    socket.on('', function(data){

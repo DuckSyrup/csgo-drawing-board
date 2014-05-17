@@ -1,4 +1,4 @@
-// # server routes index
+// # index
 
 module.exports = function(app,db,passport,utils) {
 	

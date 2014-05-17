@@ -1,4 +1,4 @@
-// # server routes strat
+// # strat
 // Handle all routes relating to strategies
 
 module.exports = function(app,db,utils) {

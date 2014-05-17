@@ -1,4 +1,4 @@
-// # server utils
+// # utils
 
 // ## Main render function
 // Takes the request and response objects as well as the jade page to load and options, which will include any errors.

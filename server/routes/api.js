@@ -1,4 +1,4 @@
-// # server routes api
+// # api
 // Handle all API requests.
 
 module.exports = function(app, db) {

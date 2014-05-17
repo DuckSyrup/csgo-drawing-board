@@ -1,4 +1,4 @@
-// # server routes user
+// # user
 
 module.exports = function(app,db,utils) {
 	// ## Sign up

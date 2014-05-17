@@ -1,4 +1,4 @@
-// # server routes auth
+// # auth
 // Handle all authorization of users through Steam.
 
 module.exports = function(app,db,passport) {

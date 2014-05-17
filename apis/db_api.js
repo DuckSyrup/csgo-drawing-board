@@ -1,3 +1,6 @@
+// # db api
+
+// ## Load dependencies
 var mongoose = require('mongoose');
 var db_users = require('./db_api/users').db;
 var db_strats = require('./db_api/strats').db;
@@ -9,7 +12,7 @@ db.on('error', console.error);
 function Db(username,pass) {
 
     
-    //Schema for a frame of a strat
+    // ## Schema for a frame of a strat
     var frameSchema = new mongoose.Schema({
         desc: String,
         event: {
@@ -23,44 +26,48 @@ function Db(username,pass) {
         strat: String
     });
     
-    //Schema for an organization
+    // ## Schema for an organization
     var orgSchema = new mongoose.Schema({
         name: String,
         editors: [Object]
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
+
+    // ## DB Functions
     
-    //Creates a new user entry into db
+    // Creates a new user entry into db.
     this.newUser = db_users.newUser;
     
-    //Edits a user's display name
+    // Edits a user's display name.
     this.editUserDisplayName = db_users.editUserDisplayName;
     
-    //Find given fields in User
+    // Find given fields in User.
     this.findInUser = db_users.findInUser;
     
-    //Creates a new strategy entry into db
+    // Creates a new strategy entry into db.
     this.newStrat = db_strats.newStrat;
     
-    //Finds user by username
+    // Finds user by username.
     this.findUser = db_users.findUser;
     
-    //Find user by steam ID
+    // Find user by steam ID.
     this.findUserBySteamId = db.users.findUserBySteamId;
     
-    //Find strat by username and strat name
+    // Find strat by username and strat name.
     this.findStrat = db_strats.findStrat;
     
-    //Finds all strategies by a user.
+    // Finds all strategies by a user.
     this.findUserStrats = db_strats.findUserStrats;
     
-    //Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
+    // Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
     this.deleteFrame = function(obj, cb) {
         if (checkChildren(obj.strat, obj.frame)) {
             
         }
     }
+    
+    // Check to find children.
     var checkChildren = function(obj) {
         Frame.findOne({strat: obj.strat, _id: obj.frame}, function(err, frame){
             var children = frame.children;

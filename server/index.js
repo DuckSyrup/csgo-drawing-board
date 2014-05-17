@@ -1,4 +1,4 @@
-// # server index
+// # index
 
 module.exports = function(app,db,passport) {
 	// We need to load utils, which has the main render function.

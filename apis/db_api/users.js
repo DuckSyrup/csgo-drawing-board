@@ -1,9 +1,11 @@
+// # users
+
 var mongoose = require('mongoose');
 
 var db = mongoose.connection;
 
 function Db(username,pass) {
-    //Schema for a user
+    // ## Schema for a user
     var userSchema = new mongoose.Schema({
         id: String,
         name: String,
@@ -11,7 +13,7 @@ function Db(username,pass) {
     });
     var User = mongoose.model('User', userSchema);
     
-    //Creates a new user entry into db
+    // ## Creates a new user
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
             var usr = new User({
@@ -22,39 +24,39 @@ function Db(username,pass) {
             usr.save(function(err, user){
                 cb(err, user);
             });
-        }
-        else {
+        } else {
             cb('must include username and steamID', null);
         }
     }
     
-    //Finds user by username
+    // ## Find user -- name
+    // Finds by username
     this.findUser = function(obj, cb) {
         if (obj.username) {
             User.findOne({name:obj.username}, function(err,user){
                 cb(err,user);
             });
-        }
-        else {
+        } else {
             cb("must provide username", null);
         }
         
     }
     
-    //Find user by steam ID
+    // ## Find user -- ID
+    // Finds by SteamID
     this.findUserBySteamId = function(obj, cb) {
         if (obj.steamID) {
             User.findOne({id:obj.steamID}, function(err,user){
                 cb(err,user);
             });
-        }
-        else {
+        } else {
             cb("must provide steamID", null);
         }
         
     }
     
-    //Edits a user's display name
+    // ## Edit user name
+    // Edits the user's display name
     this.editUserDisplayName = function(obj, cb) {
         if (obj.displayName && obj.name) {
             User.update({name:obj.name}, {displayName:obj.displayName}, function(err,user){
@@ -63,7 +65,8 @@ function Db(username,pass) {
         }
     }
     
-    //Find given fields in User
+    // ## Find user details
+    // Finds given fields in user
     this.findInUser = function(obj, cb) {
         if (obj.params && obj.name) {
             var paramString = obj.params.join(' ');
@@ -72,9 +75,7 @@ function Db(username,pass) {
             });
         }
     }
-    
     mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
-
 }
 
 exports.db = function(user,pass){
