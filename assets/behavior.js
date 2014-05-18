@@ -92,10 +92,89 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "projectPath": "apis/db_api.js",
             "targetPath": "apis/db_api",
             "pageTitle": "apis/db_api",
-            "title": "db_api"
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "db api",
+                "slug": "db-api",
+                "isFileHeader": true
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Load dependencies",
+                    "slug": "load-dependencies"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Schema for a frame of a strat",
+                    "slug": "schema-for-a-frame-of-a-strat"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Schema for an organization",
+                    "slug": "schema-for-an-organization"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "DB Functions",
+                    "slug": "db-functions"
+                  },
+                  "depth": 2
+                }
+              ]
+            },
+            "title": "db api"
           },
           "depth": 2,
-          "outline": [],
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Load dependencies",
+                "slug": "load-dependencies"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Schema for a frame of a strat",
+                "slug": "schema-for-a-frame-of-a-strat"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Schema for an organization",
+                "slug": "schema-for-an-organization"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "DB Functions",
+                "slug": "db-functions"
+              },
+              "depth": 2
+            }
+          ],
           "children": [
             {
               "type": "file",
@@ -113,10 +192,41 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "apis/db_api/frames.js",
                 "targetPath": "apis/db_api/frames",
                 "pageTitle": "apis/db_api/frames",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "frames",
+                    "slug": "frames",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Connect to the DB",
+                        "slug": "connect-to-the-db"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
                 "title": "frames"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Connect to the DB",
+                    "slug": "connect-to-the-db"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -133,6 +243,16 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "apis/db_api/maps.js",
                 "targetPath": "apis/db_api/maps",
                 "pageTitle": "apis/db_api/maps",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "maps",
+                    "slug": "maps",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
                 "title": "maps"
               },
               "depth": 3,
@@ -153,6 +273,16 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "apis/db_api/orgs.js",
                 "targetPath": "apis/db_api/orgs",
                 "pageTitle": "apis/db_api/orgs",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "orgs",
+                    "slug": "orgs",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
                 "title": "orgs"
               },
               "depth": 3,
@@ -173,10 +303,89 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "apis/db_api/strats.js",
                 "targetPath": "apis/db_api/strats",
                 "pageTitle": "apis/db_api/strats",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "strats",
+                    "slug": "strats",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Schema for a strat",
+                        "slug": "schema-for-a-strat"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Creates a new strat",
+                        "slug": "creates-a-new-strat"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Find strat",
+                        "slug": "find-strat"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Finds all user strats",
+                        "slug": "finds-all-user-strats"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
                 "title": "strats"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Schema for a strat",
+                    "slug": "schema-for-a-strat"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Creates a new strat",
+                    "slug": "creates-a-new-strat"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Find strat",
+                    "slug": "find-strat"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Finds all user strats",
+                    "slug": "finds-all-user-strats"
+                  },
+                  "depth": 2
+                }
+              ]
             }, {
               "type": "file",
               "data": {
@@ -193,10 +402,121 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "projectPath": "apis/db_api/users.js",
                 "targetPath": "apis/db_api/users",
                 "pageTitle": "apis/db_api/users",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "users",
+                    "slug": "users",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Schema for a user",
+                        "slug": "schema-for-a-user"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Creates a new user",
+                        "slug": "creates-a-new-user"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Find user -- name",
+                        "slug": "find-user-name"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Find user -- ID",
+                        "slug": "find-user-id"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Edit user name",
+                        "slug": "edit-user-name"
+                      },
+                      "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Find user details",
+                        "slug": "find-user-details"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
                 "title": "users"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Schema for a user",
+                    "slug": "schema-for-a-user"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Creates a new user",
+                    "slug": "creates-a-new-user"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Find user -- name",
+                    "slug": "find-user-name"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Find user -- ID",
+                    "slug": "find-user-id"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Edit user name",
+                    "slug": "edit-user-name"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Find user details",
+                    "slug": "find-user-details"
+                  },
+                  "depth": 2
+                }
+              ]
             }
           ]
         }, {
@@ -215,7 +535,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "projectPath": "apis/socket_io_api.js",
             "targetPath": "apis/socket_io_api",
             "pageTitle": "apis/socket_io_api",
-            "title": "socket_io_api"
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "socket.io api",
+                "slug": "socketio-api",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "socket.io api"
           },
           "depth": 2,
           "outline": []
@@ -417,13 +747,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "server index",
-                "slug": "server-index",
+                "title": "index",
+                "slug": "index",
                 "isFileHeader": true
               },
               "depth": 1
             },
-            "title": "server index"
+            "title": "index"
           },
           "depth": 2,
           "outline": []
@@ -455,8 +785,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes api",
-                    "slug": "server-routes-api",
+                    "title": "api",
+                    "slug": "api",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -480,7 +810,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes api"
+                "title": "api"
               },
               "depth": 3,
               "outline": [
@@ -522,8 +852,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes auth",
-                    "slug": "server-routes-auth",
+                    "title": "auth",
+                    "slug": "auth",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -547,7 +877,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes auth"
+                "title": "auth"
               },
               "depth": 3,
               "outline": [
@@ -589,8 +919,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes index",
-                    "slug": "server-routes-index",
+                    "title": "index",
+                    "slug": "index",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -638,7 +968,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes index"
+                "title": "index"
               },
               "depth": 3,
               "outline": [
@@ -704,8 +1034,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes main",
-                    "slug": "server-routes-main",
+                    "title": "main",
+                    "slug": "main",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -721,7 +1051,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes main"
+                "title": "main"
               },
               "depth": 3,
               "outline": [
@@ -755,8 +1085,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes strat",
-                    "slug": "server-routes-strat",
+                    "title": "strat",
+                    "slug": "strat",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -796,7 +1126,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes strat"
+                "title": "strat"
               },
               "depth": 3,
               "outline": [
@@ -854,8 +1184,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "server routes user",
-                    "slug": "server-routes-user",
+                    "title": "user",
+                    "slug": "user",
                     "isFileHeader": true
                   },
                   "depth": 1,
@@ -887,7 +1217,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     }
                   ]
                 },
-                "title": "server routes user"
+                "title": "user"
               },
               "depth": 3,
               "outline": [
@@ -939,8 +1269,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "server utils",
-                "slug": "server-utils",
+                "title": "utils",
+                "slug": "utils",
                 "isFileHeader": true
               },
               "depth": 1,
@@ -956,7 +1286,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "server utils"
+            "title": "utils"
           },
           "depth": 2,
           "outline": [
