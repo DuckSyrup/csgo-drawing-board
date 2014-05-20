@@ -2,8 +2,6 @@
 
 // ## Load dependencies
 var mongoose = require('mongoose');
-var db_users = require('./db_api/users').db;
-var db_strats = require('./db_api/strats').db;
 
 var db = mongoose.connection;
 
@@ -11,6 +9,9 @@ db.on('error', console.error);
 
 function Db(username,pass) {
 
+
+    var db_users = require('./db_api/users').db;
+    var db_strats = require('./db_api/strats').db;
     
     // ## Schema for a frame of a strat
     var frameSchema = new mongoose.Schema({
@@ -52,7 +53,7 @@ function Db(username,pass) {
     this.findUser = db_users.findUser;
     
     // Find user by steam ID.
-    this.findUserBySteamId = db.users.findUserBySteamId;
+    this.findUserBySteamId = db_users.findUserBySteamId;
     
     // Find strat by username and strat name.
     this.findStrat = db_strats.findStrat;
