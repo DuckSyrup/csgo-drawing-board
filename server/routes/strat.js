@@ -44,13 +44,13 @@ module.exports = function(app,db,utils) {
 	});
 	
 	// ## Edit a strategy
-	app.get('/:type(u|user)/:user/:strat', function(req,res) {
+	app.get('/:userPath(u|user)/:user/:stratPath(s|strat|strategy)/:strat', function(req,res) {
 		utils.render(req, res, 'editor');
 	});
 	
 	// ## Delete a strategy
 	// This will probably be replaced by the API.
-	app.get('/:type(u|user)/:user/:strat/delete', function(req,res) {
+	app.get('/:userPath(u|user)/:user/:strat/delete', function(req,res) {
 		res.send('delete');
 	});
 }
