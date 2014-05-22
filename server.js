@@ -17,7 +17,6 @@ var passport = require('passport'),
 	url = require('url'),
 	nconf = require('nconf'),
 	summon = require('express-summon-route'),
-	fs = require('fs'),
 	io = require('./apis/socket_io_api');
 
 // ## Read config

@@ -4,7 +4,7 @@
 module.exports = function(app, db) {
 	// ## Get a user
 	// Does not return strats.
-	app.get('/api/:type(u|user)/:user', function(req,res) {
+	app.get('/api/:userType(u|user)/:user', function(req,res) {
 		db.findUser(req.params.user, function(err, user) {
 			if (user) {
 				// If the user that was passed exists, pass back info.
@@ -17,7 +17,7 @@ module.exports = function(app, db) {
 	});
 	
 	// ## Delete a user strat
-	app.get('/api/:type(u|user)/:user/:strat/delete', function(req,res) {
+	app.get('/api/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat/delete', function(req,res) {
 		if (req.user && req.user.name && req.user.name == req.params.user) {
 			// If the user trying to delete is an authorized user, delete the strat.
 			// This is not currently implemented.
