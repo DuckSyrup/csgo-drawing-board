@@ -45,7 +45,7 @@ module.exports = function(app,db,utils) {
 	
 	// ## Edit a strategy
 	app.get('/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat', function(req,res) {
-		utils.render(req, res, 'editor');
+		utils.render(req, res, 'strat');
 	});
 	
 	// ## Delete a strategy
