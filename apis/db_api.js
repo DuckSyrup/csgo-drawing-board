@@ -41,7 +41,7 @@ function Db(username,pass) {
     
     // ## Schema for a user
     var userSchema = new mongoose.Schema({
-        steamId: String,
+        steamID: String,
         name: String,
         displayName: String
     });
