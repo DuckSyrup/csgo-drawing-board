@@ -1,18 +1,5 @@
 // # users
-
-var mongoose = require('mongoose');
-
-var db = mongoose.connection;
-
-function Db(username,pass) {
-    // ## Schema for a user
-    var userSchema = new mongoose.Schema({
-        id: String,
-        name: String,
-        displayName: String
-    });
-    var User = mongoose.model('User', userSchema);
-    
+function Db(username,pass,User) {
     // ## Creates a new user
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
@@ -75,11 +62,10 @@ function Db(username,pass) {
             });
         }
     }
-    mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
 }
 
-exports.db = function(user,pass){
-    return new Db(user,pass);
+exports.db = function(user,pass,User){
+    return new Db(user,pass,User);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

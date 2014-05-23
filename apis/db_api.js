@@ -10,8 +10,7 @@ db.on('error', console.error);
 function Db(username,pass) {
 
 
-    var db_users = require('./db_api/users').db;
-    var db_strats = require('./db_api/strats').db;
+    
     
     // ## Schema for a frame of a strat
     var frameSchema = new mongoose.Schema({
@@ -27,6 +26,26 @@ function Db(username,pass) {
         strat: String
     });
     
+    // ## Schema for a strat
+    var stratSchema = new mongoose.Schema({
+        stratName: String,
+        desc: String,
+        owner: {
+            // Category
+            cat: String,
+            name: String
+        },
+        map: String,
+        root: String
+    });
+    
+    // ## Schema for a user
+    var userSchema = new mongoose.Schema({
+        id: String,
+        name: String,
+        displayName: String
+    });
+    
     // ## Schema for an organization
     var orgSchema = new mongoose.Schema({
         name: String,
@@ -34,6 +53,11 @@ function Db(username,pass) {
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
+    var Strat = mongoose.model('Strat', stratSchema);
+    var User = mongoose.model('User', userSchema);
+    
+    var db_users = require('./db_api/users').db(username,pass,User);
+    var db_strats = require('./db_api/strats').db(username,pass,User);
 
     // ## DB Functions
     
