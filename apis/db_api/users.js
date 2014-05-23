@@ -4,7 +4,7 @@ function Db(username,pass,User) {
     this.newUser = function(obj, cb) {
         if (obj.steamID && obj.username) {
             var usr = new User({
-                id: obj.steamID,
+                steamId: obj.steamID,
                 name: obj.username,
                 displayName: obj.username
             });
