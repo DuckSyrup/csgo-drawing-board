@@ -41,7 +41,7 @@ function Db(username,pass) {
     
     // ## Schema for a user
     var userSchema = new mongoose.Schema({
-        id: String,
+        steamId: String,
         name: String,
         displayName: String
     });
@@ -57,7 +57,7 @@ function Db(username,pass) {
     var User = mongoose.model('User', userSchema);
     
     var db_users = require('./db_api/users').db(username,pass,User);
-    var db_strats = require('./db_api/strats').db(username,pass,User);
+    //var db_strats = require('./db_api/strats').db(username,pass,User);
 
     // ## DB Functions
     
@@ -71,7 +71,7 @@ function Db(username,pass) {
     this.findInUser = db_users.findInUser;
     
     // Creates a new strategy entry into db.
-    this.newStrat = db_strats.newStrat;
+    //this.newStrat = db_strats.newStrat;
     
     // Finds user by username.
     this.findUser = db_users.findUser;
@@ -80,10 +80,10 @@ function Db(username,pass) {
     this.findUserBySteamId = db_users.findUserBySteamId;
     
     // Find strat by username and strat name.
-    this.findStrat = db_strats.findStrat;
+    //this.findStrat = db_strats.findStrat;
     
     // Finds all strategies by a user.
-    this.findUserStrats = db_strats.findUserStrats;
+    //his.findUserStrats = db_strats.findUserStrats;
     
     // Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
     this.deleteFrame = function(obj, cb) {
