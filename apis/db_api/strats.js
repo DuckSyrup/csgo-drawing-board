@@ -1,5 +1,5 @@
 // # strats
-function Db(username,pass,Strat) {
+function Db(username,pass,Strat,Frame) {
     // ## Creates a new strat
     this.newStrat = function(obj, cb) {
         if (obj.stratName && obj.owner.name && obj.owner.cat && obj.map) {
@@ -54,10 +54,19 @@ function Db(username,pass,Strat) {
             cb("must provide name and cat", null);
         }
     }
+    
+    // ## Removes a strat and all frames attached to that strat
+    this.removeStrat = function(obj, cb) {
+        if (obj.owner.name && obj.owner.cat && obj.stratName) {
+            Strat.remove({owner: obj.owner, stratName: obj.stratName}, function(err){
+                cb(err);
+            });
+        }
+    }
 }
 
-exports.db = function(user,pass,Strat){
-    return new Db(user,pass,Strat);
+exports.db = function(user,pass,Strat,Frame){
+    return new Db(user,pass,Strat,Frame);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.
