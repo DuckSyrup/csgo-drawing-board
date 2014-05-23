@@ -26,7 +26,6 @@ function Db(username,pass,User) {
         } else {
             cb("must provide username", null);
         }
-        
     }
     
     // ## Find user -- ID
@@ -39,7 +38,6 @@ function Db(username,pass,User) {
         } else {
             cb("must provide steamID", null);
         }
-        
     }
     
     // ## Edit user name
