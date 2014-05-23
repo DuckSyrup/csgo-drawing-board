@@ -122,6 +122,22 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
+                    "title": "Schema for a strat",
+                    "slug": "schema-for-a-strat"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Schema for a user",
+                    "slug": "schema-for-a-user"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
                     "title": "Schema for an organization",
                     "slug": "schema-for-an-organization"
                   },
@@ -155,6 +171,22 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "level": 2,
                 "title": "Schema for a frame of a strat",
                 "slug": "schema-for-a-frame-of-a-strat"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Schema for a strat",
+                "slug": "schema-for-a-strat"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Schema for a user",
+                "slug": "schema-for-a-user"
               },
               "depth": 2
             }, {
@@ -317,14 +349,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "type": "heading",
                       "data": {
                         "level": 2,
-                        "title": "Schema for a strat",
-                        "slug": "schema-for-a-strat"
-                      },
-                      "depth": 2
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
                         "title": "Creates a new strat",
                         "slug": "creates-a-new-strat"
                       },
@@ -353,14 +377,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 3,
               "outline": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Schema for a strat",
-                    "slug": "schema-for-a-strat"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
@@ -416,14 +432,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                       "type": "heading",
                       "data": {
                         "level": 2,
-                        "title": "Schema for a user",
-                        "slug": "schema-for-a-user"
-                      },
-                      "depth": 2
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 2,
                         "title": "Creates a new user",
                         "slug": "creates-a-new-user"
                       },
@@ -468,14 +476,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 3,
               "outline": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Schema for a user",
-                    "slug": "schema-for-a-user"
-                  },
-                  "depth": 2
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
