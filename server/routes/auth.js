@@ -14,8 +14,7 @@ module.exports = function(app,db,passport) {
 	app.get('/auth/steam/return',
 		passport.authenticate('steam', {failureRedirect: '/'}),
 		function(req, res) {
-			console.log(db);
-			db.findUserBySteamId(req.user.id, function(err,user){
+			db.findUserBySteamId({steamID: req.user.id}, function(err,user){
 				if (user) {
 					req.user.name = user.name;
 					res.redirect('/u/'+user.name);

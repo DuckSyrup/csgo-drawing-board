@@ -26,7 +26,7 @@ module.exports = function(app,db,utils) {
 	
 	// ## View a user
 	app.get('/:userType(u|user)/:user', function(req,res) {
-		db.findUser(req.params.user, function(err, user) {
+		db.findUser({name: req.params.user}, function(err, user) {
 			if (user) {
 				db.findUserStrats({name:req.params.user, cat:'user'}, function(err, strats) {
 					utils.render(req, res, 'user', {error: err, user: req.params.user, strats:strats});
