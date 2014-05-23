@@ -33,7 +33,7 @@ function Db(username,pass,User) {
     // Finds by SteamID
     this.findUserBySteamId = function(obj, cb) {
         if (obj.steamID) {
-            User.findOne({id:obj.steamID}, function(err,user){
+            User.findOne({steamID:obj.steamID}, function(err,user){
                 cb(err,user);
             });
         } else {
