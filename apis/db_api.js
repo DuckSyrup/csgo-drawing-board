@@ -84,6 +84,8 @@ function Db(username,pass) {
     // Finds all strategies by a user.
     this.findUserStrats = db_strats.findUserStrats;
     
+    this.removeStrat = db_strats.removeStrat;
+    
     // Delete frame from strat. First checks to make sure no one is currently editing any of the child frames and then deletes a the frame and all of children.
     this.deleteFrame = function(obj, cb) {
         if (checkChildren(obj.strat, obj.frame)) {
