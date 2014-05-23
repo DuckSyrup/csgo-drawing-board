@@ -2,11 +2,11 @@
 function Db(username,pass,User) {
     // ## Creates a new user
     this.newUser = function(obj, cb) {
-        if (obj.steamID && obj.username) {
+        if (obj.steamID && obj.name) {
             var usr = new User({
                 steamID: obj.steamID,
-                name: obj.username,
-                displayName: obj.username
+                name: obj.name,
+                title: obj.name
             });
             usr.save(function(err, user){
                 cb(err, user);
@@ -43,8 +43,8 @@ function Db(username,pass,User) {
     // ## Edit user name
     // Edits the user's display name
     this.editUserDisplayName = function(obj, cb) {
-        if (obj.displayName && obj.name) {
-            User.update({name:obj.name}, {displayName:obj.displayName}, function(err,user){
+        if (obj.title && obj.name) {
+            User.update({name:obj.name}, {title:obj.title}, function(err,user){
                 cb(err,user);
             });
         }

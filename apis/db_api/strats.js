@@ -2,9 +2,10 @@
 function Db(username,pass,Strat,Frame) {
     // ## Creates a new strat
     this.newStrat = function(obj, cb) {
-        if (obj.stratName && obj.owner.name && obj.owner.cat && obj.map) {
+        if (obj.name && obj.owner.name && obj.owner.cat && obj.map && obj.title) {
             var strat = new Strat({
-                stratName: obj.stratName,
+                name: obj.name,
+                title: obj.title,
                 owner: obj.owner,
                 desc: obj.desc,
                 map: obj.map,
@@ -35,8 +36,8 @@ function Db(username,pass,Strat,Frame) {
     // ## Find strat
     // Find by username and strat name
     this.findStrat = function(obj, cb){
-        if (obj.stratName && obj.owner.name && obj.owner.cat) {
-            Strat.findOne({stratName:obj.stratName, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
+        if (obj.name && obj.owner.name && obj.owner.cat) {
+            Strat.findOne({name:obj.name, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
                 cb(err,strat);
             });
         } else {
@@ -57,9 +58,14 @@ function Db(username,pass,Strat,Frame) {
     
     // ## Removes a strat and all frames attached to that strat
     this.removeStrat = function(obj, cb) {
+        var errCat = "";
         if (obj.owner.name && obj.owner.cat && obj.stratName) {
-            Strat.remove({owner: obj.owner, stratName: obj.stratName}, function(err){
-                cb(err);
+            Frame.remove({strat:obj.stratName}, function(err){
+                errCat += err;
+                Strat.remove({owner: obj.owner, stratName: obj.stratName}, function(err){
+                    errCat += err;
+                    cb(errCat);
+                });
             });
         }
     }
