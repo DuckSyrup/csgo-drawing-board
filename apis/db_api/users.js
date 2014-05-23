@@ -19,8 +19,8 @@ function Db(username,pass,User) {
     // ## Find user -- name
     // Finds by username
     this.findUser = function(obj, cb) {
-        if (obj.username) {
-            User.findOne({name:obj.username}, function(err,user){
+        if (obj.name) {
+            User.findOne({name:obj.name}, function(err,user){
                 cb(err,user);
             });
         } else {
