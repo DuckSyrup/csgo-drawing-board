@@ -9,5 +9,5 @@ block content
 		div #{user}'s strategies:
 		each strat in strats
 			div.strat(id='#{strat.stratName}')
-				a(href='/u/#{user}/#{strat.stratName}') #{strat.stratName}
+				a(href='/u/#{user}/s/#{strat.stratName}') #{strat.stratName}
 				|/#{strat.map}
