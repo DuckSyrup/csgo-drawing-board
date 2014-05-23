@@ -8,9 +8,6 @@ var db = mongoose.connection;
 db.on('error', console.error);
 
 function Db(username,pass) {
-
-
-    
     
     // ## Schema for a frame of a strat
     var frameSchema = new mongoose.Schema({
@@ -29,6 +26,7 @@ function Db(username,pass) {
     // ## Schema for a strat
     var stratSchema = new mongoose.Schema({
         stratName: String,
+        displayName: String,
         desc: String,
         owner: {
             // Category
@@ -49,7 +47,8 @@ function Db(username,pass) {
     // ## Schema for an organization
     var orgSchema = new mongoose.Schema({
         name: String,
-        editors: [Object]
+        admins: [String],
+        editors: [String]
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
@@ -57,7 +56,7 @@ function Db(username,pass) {
     var User = mongoose.model('User', userSchema);
     
     var db_users = require('./db_api/users').db(username,pass,User);
-    var db_strats = require('./db_api/strats').db(username,pass,Strat);
+    var db_strats = require('./db_api/strats').db(username,pass,Strat,Frame);
 
     // ## DB Functions
     
