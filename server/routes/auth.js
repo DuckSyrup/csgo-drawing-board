@@ -15,11 +15,11 @@ module.exports = function(app,db,passport) {
 		passport.authenticate('steam', {failureRedirect: '/'}),
 		function(req, res) {
 			db.findUserBySteamId({steamID: req.user.id}, function(err,user){
+				// If the user already exists, redirect to the user page.
 				if (user) {
 					req.user.name = user.name;
 					res.redirect('/u/'+user.name);
-				}
-				else {
+				} else { // Otherwise, redirect to the new user page.
 					res.redirect('/signup');
 				}
 			});
