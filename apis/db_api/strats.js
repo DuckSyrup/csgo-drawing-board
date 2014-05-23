@@ -1,26 +1,5 @@
 // # strats
-
-var mongoose = require('mongoose');
-
-var db = mongoose.connection;
-
-function Db(username,pass) {
-
-    // ## Schema for a strat
-    var stratSchema = new mongoose.Schema({
-        stratName: String,
-        desc: String,
-        owner: {
-            // Category
-            cat: String,
-            name: String
-        },
-        map: String,
-        root: String
-    });
-    
-    var Strat = mongoose.model('Strat', stratSchema);
-
+function Db(username,pass,Strat) {
     // ## Creates a new strat
     this.newStrat = function(obj, cb) {
         if (obj.stratName && obj.owner.name && obj.owner.cat && obj.map) {
@@ -75,12 +54,10 @@ function Db(username,pass) {
             cb("must provide name and cat", null);
         }
     }
-
-    mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
 }
 
-exports.db = function(user,pass){
-    return new Db(user,pass);
+exports.db = function(user,pass,Strat){
+    return new Db(user,pass,Strat);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.
