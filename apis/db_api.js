@@ -25,7 +25,7 @@ function Db(username,pass) {
     
     // ## Schema for a strat
     var stratSchema = new mongoose.Schema({
-        stratName: String,
+        name: String,
         title: String,
         desc: String,
         owner: {
