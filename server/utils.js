@@ -1,16 +1,25 @@
-// # socket.io api
+// # utils
 
-// Load socket.io
-var io = require('socket.io');
+// ## Main render function
+// Takes the request and response objects as well as the jade page to load and options, which will include any errors.
 
-exports.start = function(server) {
-    // Start listening
-    io.listen(server);
-    //io.on('connection', function(socket){
-    //    socket.on('', function(data){
-    //        //stuff
-    //    }); 
-    //});
+exports.render = function(req, res, page, options) {
+	if (!options) options = {};
+	// Error handling
+	if (options.error) {
+		if (options.error.length == 0)
+			delete options.error;
+	}
+	// Message handling
+	if (options.message) {
+		if (options.message.length == 0)
+			delete options.message;
+	}
+	// Pass on session data
+	if (req.user && req.user.name)
+		options.currUser = req.user.name;
+	// Render the page
+	res.render(page, options);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

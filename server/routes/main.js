@@ -1,16 +1,11 @@
-// # socket.io api
+// # main
+// All "miscellaneous" or "main" routes that are not devoted to a specific function.  Currently just includes handling of /, aka the homepage.
 
-// Load socket.io
-var io = require('socket.io');
-
-exports.start = function(server) {
-    // Start listening
-    io.listen(server);
-    //io.on('connection', function(socket){
-    //    socket.on('', function(data){
-    //        //stuff
-    //    }); 
-    //});
+module.exports = function(app,utils) {
+	// ## Main page
+	app.get('/', function(req,res) {
+		utils.render(req, res, 'index');
+	});
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

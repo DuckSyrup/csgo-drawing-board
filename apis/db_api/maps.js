@@ -1,16 +1,15 @@
-// # socket.io api
+// # maps
 
-// Load socket.io
-var io = require('socket.io');
+var mongoose = require('mongoose');
 
-exports.start = function(server) {
-    // Start listening
-    io.listen(server);
-    //io.on('connection', function(socket){
-    //    socket.on('', function(data){
-    //        //stuff
-    //    }); 
-    //});
+var db = mongoose.connection;
+
+function Db(username,pass) {
+    mongoose.connect('mongodb://'+username+':'+pass+'@ds047207.mongolab.com:47207/csgodb');
+}
+
+exports.db = function(user,pass){
+    return new Db(user,pass);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

@@ -1,33 +1,33 @@
 doctype html5
 html
-        head
-                title CS:GO Drawing Board
-                link(rel='stylesheet', href='/styles/main.css', type='text/css')
-                link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto+Condensed', type='text/css')
-                script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
-                block custHead
-        body
-                div#mainWrapper
-                        div#header
-                                div#navMain.navElement.left
-                                        a(href='/').navLink Home
-                                        a(href='/create').navLink Create Strat
-                                div#navUser.navElement.right
-                                        if currUser
-                                                a(href='/u/#{currUser}') #{currUser}
-                                        else
-                                                a(href='/auth/steam')
-                                                    img(src='https://steamcommunity.com/public/images/signinthroughsteam/sits_small.png')
-                        hr
-                        if error
-                                div#error
-                                        div Error: #{error}
-                        if message
-                                div#message
-                                        div #{message}
-                        div#content
-                                block content
-                        hr
-                        div#footer
-                                div#copyright © 2014 <a href="https://github.com/DuckSyrup">Duck Syrup</a>
-                                div#source Source available at <a href="https://github.com/DuckSyrup/csgo-drawing-board/">GitHub</a>
+	head
+		title CS:GO Drawing Board
+		link(rel='stylesheet', href='/styles/main.css', type='text/css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto+Condensed', type='text/css')
+		script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
+		block custHead
+	body
+		div#mainWrapper
+			div#header
+				div#navMain.navElement.left
+					a(href='/').navLink Home
+					a(href='/create').navLink Create Strat
+				div#navUser.navElement.right
+					if currUser
+						a(href='/u/#{currUser}') #{currUser}
+					else
+						a(href='/auth/steam')
+							img(src='https://steamcommunity.com/public/images/signinthroughsteam/sits_small.png')
+			hr
+			if error
+				div#error
+					div Error: #{error}
+			if message
+				div#message
+					div #{message}
+			div#content
+				block content
+			hr
+			div#footer
+				div#copyright © 2014 <a href="https://github.com/DuckSyrup">Duck Syrup</a>
+				div#source Source available at <a href="https://github.com/DuckSyrup/csgo-drawing-board/">GitHub</a>

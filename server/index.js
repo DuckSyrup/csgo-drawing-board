@@ -1,16 +1,12 @@
-// # socket.io api
+// # index
 
-// Load socket.io
-var io = require('socket.io');
-
-exports.start = function(server) {
-    // Start listening
-    io.listen(server);
-    //io.on('connection', function(socket){
-    //    socket.on('', function(data){
-    //        //stuff
-    //    }); 
-    //});
+module.exports = function(app,db,passport) {
+	// We need to load utils, which has the main render function.
+	var utils = require('./utils');
+	
+	// Load routes and pass the appropriate modules to them.
+	
+	require('./routes')(app,db,passport,utils);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

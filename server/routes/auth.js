@@ -1,16 +1,31 @@
-// # socket.io api
+// # auth
+// Handle all authorization of users through Steam.
 
-// Load socket.io
-var io = require('socket.io');
-
-exports.start = function(server) {
-    // Start listening
-    io.listen(server);
-    //io.on('connection', function(socket){
-    //    socket.on('', function(data){
-    //        //stuff
-    //    }); 
-    //});
+module.exports = function(app,db,passport) {
+	// ## Login through Steam
+	app.get('/auth/steam',
+		passport.authenticate('steam', {failureRedirect: '/'}),
+		function(req,res) {
+			res.redirect('/');
+		}
+	);
+	
+	// ## Complete Steam login
+	app.get('/auth/steam/return',
+		passport.authenticate('steam', {failureRedirect: '/'}),
+		function(req, res) {
+			console.log(db);
+			db.findUserBySteamId(req.user.id, function(err,user){
+				if (user) {
+					req.user.name = user.name;
+					res.redirect('/u/'+user.name);
+				}
+				else {
+					res.redirect('/signup');
+				}
+			});
+		}
+	);
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.

@@ -1,7 +1,7 @@
 extends layout
 
 block custHead
-	script(type='text/javascript', src='scripts/user.js')
+	script(type='text/javascript', src='/scripts/user.js')
 
 block content
 	div #{user}
@@ -10,3 +10,4 @@ block content
 		each strat in strats
 			div.strat(id='#{strat.stratName}')
 				a(href='/u/#{user}/#{strat.stratName}') #{strat.stratName}
+				|/#{strat.map}
