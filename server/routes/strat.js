@@ -12,11 +12,12 @@ module.exports = function(app,db,utils) {
 	
 	// ## Finalizing strategy creation
 	app.post('/create/init', function(req,res) {
-		if (req.body.name && req.body.map && req.user && req.user.name) {
+		if (req.body.name && req.body.map && req.user && req.user.name && req.body.title) {
 			var desc;
 			req.body.desc ? desc = req.body.desc : desc = '';
 			var newStrat = {
-				stratName: req.body.name,
+				name: req.body.name,
+				title: req.body.title,
 				owner: {name: req.user.name, cat: 'user'},
 				map: req.body.map,
 				desc: desc
@@ -27,7 +28,7 @@ module.exports = function(app,db,utils) {
 					res.redirect('/create');
 				}
 				else {
-					res.redirect('/u/' + req.user.name + '/' + req.body.name);
+					res.redirect('/u/' + req.user.name + '/s/' + req.body.name);
 				}
 			});
 		} else {
@@ -45,7 +46,13 @@ module.exports = function(app,db,utils) {
 	
 	// ## Edit a strategy
 	app.get('/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat', function(req,res) {
-		utils.render(req, res, 'strat');
+		if (req.params.user && req.params.strat) {
+			db.findStrat({name:req.params.strat, owner: {name:req.params.user, cat:'user'}}, function(err, strat) {
+				console.log(err);
+				console.log(strat);
+				utils.render(req, res, 'strat', {error: err, strat:strat});
+			});
+		}
 	});
 	
 	// ## Delete a strategy

@@ -36,8 +36,8 @@ function Db(username,pass,Strat,Frame) {
     // ## Find strat
     // Find by username and strat name
     this.findStrat = function(obj, cb){
-        if (obj.stratName && obj.owner.name && obj.owner.cat) {
-            Strat.findOne({stratName:obj.stratName, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
+        if (obj.name && obj.owner.name && obj.owner.cat) {
+            Strat.findOne({name:obj.name, 'owner.name':obj.owner.name, 'owner.cat':obj.owner.cat}, function(err,strat){
                 cb(err,strat);
             });
         } else {

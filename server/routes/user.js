@@ -9,7 +9,7 @@ module.exports = function(app,db,utils) {
 	// ## Process the signup
 	app.post('/signup/init', function(req,res) {
 		var newUser= {
-			username: req.body.name,
+			name: req.body.name,
 			steamID: req.user.id
 		};
 		db.newUser(newUser, function(err, user) {
