@@ -61,6 +61,9 @@ function Db(username,pass) {
                 cb(err,user);
             });
         }
+        else {
+            cb("must provide displayName and name", null);
+        }
     }
     
     //Find given fields in User
@@ -70,6 +73,9 @@ function Db(username,pass) {
             User.find({name:obj.name}, paramString, function(err, user){
                 cb(err, user);
             });
+        }
+        else {
+            cb("must provide params and name", null);
         }
     }
     

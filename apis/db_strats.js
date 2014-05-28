@@ -76,7 +76,22 @@ function Db(username,pass) {
         
     }
     
-    //
+    //Removes a strat and all of it's frames
+    this.removeStrat = function(obj, cb) {
+        
+    }
+    
+    //Edit display name for strat
+    this.editStratDisplayName = function(obj, cb) {
+        if (obj.stratName && obj.owner.cat && obj.owner.name && obj.displayName) {
+            Strat.update({stratName: obj.stratName, 'owner.cat': owner.cat, 'owner.name': owner.name}, {displayName: obj.displayName}, function(err, strat){
+                cb(err, strat);
+            });
+        }
+        else {
+            cb("must provide strat name owner.cat and owner.name", null);
+        }
+    }
     
     
     

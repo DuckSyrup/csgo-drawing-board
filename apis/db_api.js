@@ -49,6 +49,7 @@ function Db(username,pass) {
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
+    var Org = mongoose.model('Org', orgSchema);
     
     //Creates a new user entry into db
     this.newUser = db_users.newUser;
