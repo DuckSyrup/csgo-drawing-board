@@ -3,15 +3,21 @@ extends layout
 block content
 	form(action='/create/init', method='post')
 		div
-			label(for='map') Map
+			label(for='title') Title:
+				input(id='title', type='text', value='', name='title')
+			br
+			label(for='name') Name:
+				input(id='name', type='text', value='', name='name')
+			br
+			label(for='map') Map:
 				select(id='map', type='text', value='', name='map')
 					option(value='de_dust2') Dust 2
 					option(value='cs_office') Office
 					option(value='de_dust') First Dust Best Dust
 					option(value='de_inferno') Inferno
 					option(vaue='de_nuke') Nuke
-
-		div
-			label(for='name') Strategy Name
-				input(id='name', type='text', value='', name='name')
+			br
+			label(for='desc') Description:
+				input(id='desc', type='text', value='', name='desc', size=40)
+		br
 		input(type='submit', value='Create Strategy')

@@ -1,24 +1,8 @@
-/*
- * Copyright 2014 Duck Syrup
- *
- * This file is part of CS:GO Drawing Board.
- *
- * CS:GO Drawing Board is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * CS:GO Drawing Board is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with CS:GO Drawing Board.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// # strat
+// Handle all routes relating to strategies
 
 module.exports = function(app,db,utils) {
-	//Create a strategy
+	// ## Create a strategy
 	app.get('/create', function(req,res) {
 		if (req.user && req.user.name)
 			utils.render(req, res, 'create', {error: req.flash('error')});
@@ -26,14 +10,17 @@ module.exports = function(app,db,utils) {
 			utils.render(req, res, 'create', {error: 'You are not logged in.'});
 	});
 	
-	//Create a strategy and load it into the DB
+	// ## Finalizing strategy creation
 	app.post('/create/init', function(req,res) {
-		if (req.body.name && req.body.map && req.user && req.user.name) {
+		if (req.body.name && req.body.map && req.user && req.user.name && req.body.title) {
+			var desc;
+			req.body.desc ? desc = req.body.desc : desc = '';
 			var newStrat = {
-				stratName: req.body.name,
+				name: req.body.name,
+				title: req.body.title,
 				owner: {name: req.user.name, cat: 'user'},
 				map: req.body.map,
-				desc: ""
+				desc: desc
 			};
 			db.newStrat(newStrat, function(err, strat){
 				if (err) {
@@ -41,7 +28,7 @@ module.exports = function(app,db,utils) {
 					res.redirect('/create');
 				}
 				else {
-					res.redirect('/u/' + req.user.name + '/' + req.body.name);
+					res.redirect('/u/' + req.user.name + '/s/' + req.body.name);
 				}
 			});
 		} else {
@@ -57,13 +44,39 @@ module.exports = function(app,db,utils) {
 		}
 	});
 	
-	//Edit a strategy
-	app.get('/:type(u|user)/:user/:strat', function(req,res) {
-		utils.render(req, res, 'editor');
+	// ## Edit a strategy
+	app.get('/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat', function(req,res) {
+		if (req.params.user && req.params.strat) {
+			db.findStrat({name:req.params.strat, owner: {name:req.params.user, cat:'user'}}, function(err, strat) {
+				console.log(err);
+				console.log(strat);
+				utils.render(req, res, 'strat', {error: err, strat:strat});
+			});
+		}
 	});
 	
-	//Delete a strategy
-	app.get('/:type(u|user)/:user/:strat/delete', function(req,res) {
+	// ## Delete a strategy
+	// This will probably be replaced by the API.
+	app.get('/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat/delete', function(req,res) {
 		res.send('delete');
 	});
 }
+
+//CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.
+//
+//Copyright 2014 Duck Syrup
+//
+//This file is part of CS:GO Drawing Board.
+//
+//CS:GO Drawing Board is free software: you can redistribute it and/or modify
+//it under the terms of the GNU Affero General Public License as published by
+//the Free Software Foundation, either version 3 of the License, or
+//(at your option) any later version.
+//
+//CS:GO Drawing Board is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//GNU Affero General Public License for more details.
+//
+//You should have received a copy of the GNU Affero General Public License
+//along with CS:GO Drawing Board.  If not, see <http://www.gnu.org/licenses/>.

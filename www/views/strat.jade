@@ -1,0 +1,10 @@
+extends layout
+
+block custHead
+	link(rel='stylesheet', href='/styles/strat.css', type='text/css')
+
+block content
+	div#stratHeader
+		div#stratTitle #{strat.title}
+		div#stratDesc #{strat.desc}
+	div#treeView TREE VIEW
