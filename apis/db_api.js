@@ -53,9 +53,7 @@ function Db(username,pass) {
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
-<<<<<<< HEAD
     var Org = mongoose.model('Org', orgSchema);
-=======
     var Strat = mongoose.model('Strat', stratSchema);
     var User = mongoose.model('User', userSchema);
     
@@ -63,7 +61,6 @@ function Db(username,pass) {
     var db_strats = require('./db_api/strats').db(username,pass,Strat,Frame);
 
     // ## DB Functions
->>>>>>> 3acfae056c0fef8c350d2f432ab4d89fffaae858
     
     // Creates a new user entry into db.
     this.newUser = db_users.newUser;
