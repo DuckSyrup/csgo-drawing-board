@@ -25,8 +25,8 @@ function Db(username,pass) {
     
     // ## Schema for a strat
     var stratSchema = new mongoose.Schema({
-        stratName: String,
-        displayName: String,
+        name: String,
+        title: String,
         desc: String,
         owner: {
             // Category
@@ -41,17 +41,19 @@ function Db(username,pass) {
     var userSchema = new mongoose.Schema({
         steamID: String,
         name: String,
-        displayName: String
+        title: String
     });
     
     // ## Schema for an organization
     var orgSchema = new mongoose.Schema({
         name: String,
+        title: String,
         admins: [String],
         editors: [String]
     });
 
     var Frame = mongoose.model('Frame', frameSchema);
+    var Org = mongoose.model('Org', orgSchema);
     var Strat = mongoose.model('Strat', stratSchema);
     var User = mongoose.model('User', userSchema);
     
