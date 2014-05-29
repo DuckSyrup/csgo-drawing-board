@@ -31,6 +31,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
+                "title": "Documentation",
+                "slug": "documentation"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
                 "title": "Contributions",
                 "slug": "contributions"
               },
@@ -51,6 +59,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "outline": [
         {
+          "type": "heading",
+          "data": {
+            "level": 2,
+            "title": "Documentation",
+            "slug": "documentation"
+          },
+          "depth": 2
+        }, {
           "type": "heading",
           "data": {
             "level": 2,
@@ -369,6 +385,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "slug": "finds-all-user-strats"
                       },
                       "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Removes a strat and all frames attached to that strat",
+                        "slug": "removes-a-strat-and-all-frames-attached-to-that-strat"
+                      },
+                      "depth": 2
                     }
                   ]
                 },
@@ -398,6 +422,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 2,
                     "title": "Finds all user strats",
                     "slug": "finds-all-user-strats"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Removes a strat and all frames attached to that strat",
+                    "slug": "removes-a-strat-and-all-frames-attached-to-that-strat"
                   },
                   "depth": 2
                 }
@@ -519,6 +551,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               ]
             }
           ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/SeanMcGeer/Programming/ds/csgo/apis/db_strats.js",
+            "projectPath": "apis/db_strats.js",
+            "targetPath": "apis/db_strats",
+            "pageTitle": "apis/db_strats",
+            "title": "db_strats"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/SeanMcGeer/Programming/ds/csgo/apis/db_users.js",
+            "projectPath": "apis/db_users.js",
+            "targetPath": "apis/db_users",
+            "pageTitle": "apis/db_users",
+            "title": "db_users"
+          },
+          "depth": 2,
+          "outline": []
         }, {
           "type": "file",
           "data": {
@@ -911,6 +983,57 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "JavaScript"
                 },
+                "sourcePath": "/Users/SeanMcGeer/Programming/ds/csgo/server/routes/frame.js",
+                "projectPath": "server/routes/frame.js",
+                "targetPath": "server/routes/frame",
+                "pageTitle": "server/routes/frame",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "frame",
+                    "slug": "frame",
+                    "isFileHeader": true
+                  },
+                  "depth": 1,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Edit a strategy",
+                        "slug": "edit-a-strategy"
+                      },
+                      "depth": 2
+                    }
+                  ]
+                },
+                "title": "frame"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Edit a strategy",
+                    "slug": "edit-a-strategy"
+                  },
+                  "depth": 2
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".js"],
+                  "pygmentsLexer": "javascript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["//"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "JavaScript"
+                },
                 "sourcePath": "/Users/SeanMcGeer/Programming/ds/csgo/server/routes/index.js",
                 "projectPath": "server/routes/index.js",
                 "targetPath": "server/routes/index",
@@ -965,6 +1088,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "slug": "strat-routes"
                       },
                       "depth": 2
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 2,
+                        "title": "Frame routes",
+                        "slug": "frame-routes"
+                      },
+                      "depth": 2
                     }
                   ]
                 },
@@ -1010,6 +1141,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 2,
                     "title": "Strat routes",
                     "slug": "strat-routes"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Frame routes",
+                    "slug": "frame-routes"
                   },
                   "depth": 2
                 }
@@ -1300,6 +1439,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 2
             }
           ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "test",
+        "title": "test"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/Users/SeanMcGeer/Programming/ds/csgo/test/db_tests.js",
+            "projectPath": "test/db_tests.js",
+            "targetPath": "test/db_tests",
+            "pageTitle": "test/db_tests",
+            "title": "db_tests"
+          },
+          "depth": 2,
+          "outline": []
         }
       ]
     }

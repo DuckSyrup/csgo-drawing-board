@@ -3,7 +3,7 @@
   <span class="p">});</span>
   </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="process-the-signup">Process the signup</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/signup/init&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">newUser</span><span class="o">=</span> <span class="p">{</span>
-      <span class="nx">username</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
       <span class="nx">steamID</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span>
     <span class="p">};</span>
     <span class="nx">db</span><span class="p">.</span><span class="nx">newUser</span><span class="p">(</span><span class="nx">newUser</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>

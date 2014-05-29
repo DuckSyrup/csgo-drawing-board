@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><title>server/routes/frame</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="server/routes/frame"><meta name="groc-project-path" content="server/routes/frame.js"><meta name="groc-github-url" content="https://github.com/DuckSyrup/csgo-drawing-board"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/DuckSyrup/csgo-drawing-board/blob/master/server/routes/frame.js">server/routes/frame.js</a></div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="frame">frame</h1>
+
+<p>Handle all routes relating to frames</p></div></div><div class="code"><div class="wrapper"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="nx">db</span><span class="p">,</span><span class="nx">utils</span><span class="p">)</span> <span class="p">{</span> </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="edit-a-strategy">Edit a strategy</h2>
+
+<p>This will load the editor page</p></div></div><div class="code"><div class="wrapper">  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat/:frameType(f|frame)/:frame&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">user</span> <span class="o">&amp;&amp;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">strat</span> <span class="o">&amp;&amp;</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">frame</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">utils</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;frame&#39;</span><span class="p">);</span> <span class="c1">// Stub because frame db stuff isn&#39;t up yet</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">//CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.</span>
+<span class="c1">//Copyright 2014 Duck Syrup</span>
+<span class="c1">//This file is part of CS:GO Drawing Board.</span>
+<span class="c1">//CS:GO Drawing Board is free software: you can redistribute it and/or modify</span>
+<span class="c1">//it under the terms of the GNU Affero General Public License as published by</span>
+<span class="c1">//the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1">//(at your option) any later version.</span>
+<span class="c1">//CS:GO Drawing Board is distributed in the hope that it will be useful,</span>
+<span class="c1">//but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">//GNU Affero General Public License for more details.</span>
+<span class="c1">//You should have received a copy of the GNU Affero General Public License</span>
+<span class="c1">//along with CS:GO Drawing Board.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div></div></div></div></body></html>
