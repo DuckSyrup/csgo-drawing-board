@@ -1,24 +1,14 @@
-// # index
+// # frame
+// Handle all routes relating to frames
 
-module.exports = function(app,db,passport,utils) {
-	
-	// ## Main routes
-	require('./main')(app,utils);
-	
-	// ## Auth routes
-	require('./auth')(app,db,passport);
-	
-	// ## API routes
-	require('./api')(app,db);
-	
-	// ## User routes
-	require('./user')(app,db,utils);
-	
-	// ## Strat routes
-	require('./strat')(app,db,utils);
-	
-	// ## Frame routes
-	require('./frame')(app,db,utils);
+module.exports = function(app,db,utils) {	
+	// ## Edit a strategy
+	// This will load the editor page
+	app.get('/:userType(u|user)/:user/:stratType(s|strat|strategy)/:strat/:frameType(f|frame)/:frame', function(req,res) {
+		if (req.params.user && req.params.strat && req.params.frame) {
+			utils.render(req, res, 'frame'); // Stub because frame db stuff isn't up yet
+		}
+	});
 }
 
 //CS:GO Drawing Board is a web application that allows users to develop CS:GO strategies.
